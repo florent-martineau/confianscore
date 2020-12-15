@@ -1,0 +1,36 @@
+envvars: &envvars
+  adapter: postgresql
+  encoding: utf8
+  host: <%= ENV["POSTGRESQL_HOST"] %>
+  port: <%= ENV["POSTGRESQL_PORT"] %>
+  database: <%= ENV["POSTGRESQL_DATABASE"] %>
+  username: <%= ENV["POSTGRESQL_USERNAME"] %>
+  password: <%= ENV["POSTGRESQL_PASSWORD"] %>
+  pool: <%= ENV["POSTGRESQL_POOL"] || ENV["RAILS_MAX_THREADS"] %>
+
+default: &default
+  host: localhost
+  adapter: postgresql
+  encoding: utf8
+  username: kyc
+  password:
+  timeout: 5000
+
+development:
+  <<: *default
+  database: confianscore-dev
+
+# Warning: The database defined as "test" will be erased and
+# re-generated from your development database when you run "rake".
+# Do not set this db to the same as development or production.
+test:
+  <<: *default
+  database: confianscore-test
+
+production:
+  adapter: postgresql
+  database: confianscore-prod
+  pool: 5
+  timeout: 5000
+  username: confianscore_user
+  password: <%= ENV["POSTGRESQL_PASSWORD"] %>

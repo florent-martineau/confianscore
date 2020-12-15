@@ -1,0 +1,2 @@
+class PointVerite < ApplicationRecord
+end

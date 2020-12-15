@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row person-header">
+    <div class="col-md-8" style="background-color:lavender;">
+      <img src="didier" alt="didier">
+      <div>
+        <h2><%= @person.full_name %></h2>
+        <h3>Confianscore : 50%</h3>
+        <div>945 sources</div>
+      </div>
+    </div>
+    <div class="col-md-4" style="background-color:lavenderblush;">
+      <div id="wikipedia">
+      <% if @person.wikipedia_link.present? %>
+      <div>
+        <%= link_to "A une fiche Wikipédia.", @person.wikipedia_link %>
+      </div>
+      <% else %>
+      <div>
+        N'a pas de fiche Wikipédia.
+      </div>
+      <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-8" style="background-color:lavender;">
+      <div>
+        <%= link_to "Ajouter une source", new_source_path() %>
+      </div>
+      <% @person.sources.each do |source| %>
+        <%= source %>
+      <% end %>
+    </div>
+    <div class="col-md-4" style="background-color:lavenderblush;">
+      <p>A propos de Didier Raoult</p>
+      <%= @person.wiki_summary %>
+      <% show_media(@person.media).each do |media| %>
+        <%= media %>
+      <% end %>
+    </div>
+  </div>
+</div>

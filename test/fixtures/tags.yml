@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  coefficient: 1.5
+  name: MyString
+
+two:
+  coefficient: 1.5
+  name: MyString

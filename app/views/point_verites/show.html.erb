@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Person:</strong>
+  <%= @point_verite.person_id %>
+</p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @point_verite.value %>
+</p>
+
+<%= link_to 'Edit', edit_point_verite_path(@point_verite) %> |
+<%= link_to 'Back', point_verites_path %>

@@ -1,0 +1,27 @@
+<%= form_with(model: point_verite, local: true) do |form| %>
+  <% if point_verite.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(point_verite.errors.count, "error") %> prohibited this point_verite from being saved:</h2>
+
+      <ul>
+        <% point_verite.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :person_id %>
+    <%= form.number_field :person_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :value %>
+    <%= form.text_field :value %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

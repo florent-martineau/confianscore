@@ -1,0 +1,32 @@
+<%= form_with(model: vote, local: true) do |form| %>
+  <% if vote.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(vote.errors.count, "error") %> prohibited this vote from being saved:</h2>
+
+      <ul>
+        <% vote.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :source_id %>
+    <%= form.number_field :source_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :is_validated %>
+    <%= form.check_box :is_validated %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tag_id %>
+    <%= form.number_field :tag_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
