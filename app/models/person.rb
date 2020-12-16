@@ -21,22 +21,29 @@ class Person < ApplicationRecord
         first_name + " " + last_name
     end
 
-    def new_point_verite
+    def create_point_verite
         points_for_each_source = []
-        Source.where(value: true, person_id: id, used: false).includes(:votes).find_each do |source|
-            
-            coefficients = source.votes.map {|vote| vote.tag.coefficient}
-            points_for_each_source << ((coefficients.inject{ |sum, el| sum + el }.to_f) / coefficients.size)
+        Source.where(is_correct: true, person_id: id, used: false).includes(:votes).find_each do |source|
+            points_for_each_source << source.score
             source.update(used: true)
         end
         new_pv_component = ((points_for_each_source.inject{ |sum, el| sum + el }.to_f) / points_for_each_source.size)
         last_pv = self.point_verites.last&.value.to_i
 
-        if abs(new_pv_component) > abs(last_pv) || ((new_pv_component*last_pv) < 0)
+        if new_pv_component.abs() > last_pv.abs() || ((new_pv_component*last_pv) < 0)
             new_pv = (new_pv_component*0.5 + last_pv)/1.5
         else
             new_pv = last_pv
         end
         PointVerite.create(person_id: id, value: new_pv)
+    end
+
+    def score_value
+        score_val = self.scores.last&.value
+        if score_val.nil?
+            0.5
+        else
+            score_val
+        end
     end
 end

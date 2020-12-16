@@ -6,7 +6,7 @@
     <div class="col-md-6">
       <div id="people-image-info">
         <h2><%= @person.full_name %></h2>
-        <h3>Confianscore : 50%</h3>
+        <h3>Confianscore : <%= (@person.score_value*100).to_s + "%" %></h3>
         <div>945 sources</div>
       </div>
     </div>

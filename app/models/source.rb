@@ -4,21 +4,29 @@
 #
 #  id         :bigint           not null, primary key
 #  abstract   :string
+#  is_correct :boolean
 #  link       :string
 #  used       :boolean
-#  value      :boolean
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  person_id  :integer
 #
 
 class Source < ApplicationRecord
+    VOTES_REQUIRED = 1
+    VALIDATED_PCT = 0.8
+
     belongs_to :person
     has_many :votes
-    
-    scope :validated_by_person, -> (person_id)  { where(value: true, person_id: person_id) }
-    scope :pending, -> { where(value: nil) }
+
+    scope :validated_by_person, -> (person_id)  { where(is_correct: true, person_id: person_id) }
+    scope :pending, -> { where(is_correct: nil) }
     def is_valid?
-        value == true
+        is_correct == true
+    end
+
+    def score
+        coefficients = self.votes.map {|vote| vote.tag.coefficient}
+        ((coefficients.inject{ |sum, el| sum + el }.to_f) / coefficients.size)
     end
 end
