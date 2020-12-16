@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: votes
+#
+#  id           :bigint           not null, primary key
+#  is_validated :boolean
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  source_id    :integer
+#  tag_id       :integer
+#
+
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:

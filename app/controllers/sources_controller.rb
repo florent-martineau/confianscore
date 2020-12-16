@@ -4,7 +4,7 @@ class SourcesController < ApplicationController
   # GET /sources
   # GET /sources.json
   def index
-    @sources = Source.all
+    @sources = Source.pending
   end
 
   # GET /sources/1
@@ -25,7 +25,8 @@ class SourcesController < ApplicationController
   # POST /sources.json
   def create
     @source = Source.new(source_params)
-
+    @source.used = false
+    
     respond_to do |format|
       if @source.save
         format.html { redirect_to @source, notice: 'Source was successfully created.' }

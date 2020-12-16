@@ -12,7 +12,7 @@
 
   <body>
     <nav class="navbar navbar-expand-lg navbar-light">
-      <a class="navbar-brand" href="#">Navbar</a>
+      <%= link_to "Confianscore", root_path(), class: "navbar-brand"  %>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -25,10 +25,10 @@
 
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" href="#">Inspecter des sources</a>
+            <%= link_to "Inspecter des sources", sources_path(), class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Créer une fiche</a>
+            <%= link_to "Créer une fiche", new_person_path(), class: "nav-link" %>
           </li>
         </ul>
 

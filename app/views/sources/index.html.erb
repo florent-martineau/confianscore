@@ -18,14 +18,10 @@
         <td><%= source.abstract %></td>
         <td><%= source.link %></td>
         <td><%= source.person_id %></td>
-        <td><%= link_to 'Show', source %></td>
-        <td><%= link_to 'Edit', edit_source_path(source) %></td>
-        <td><%= link_to 'Destroy', source, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Voter', new_vote_path({:source_id => source.id}) %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Source', new_source_path %>

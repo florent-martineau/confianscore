@@ -11,21 +11,23 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field" hidden>
     <%= form.label :source_id %>
     <%= form.number_field :source_id %>
   </div>
 
-  <div class="field">
-    <%= form.label :is_validated %>
-    <%= form.check_box :is_validated %>
-  </div>
+  <div id="vote-validation-field">
+    <div class="field">
+      <%= form.radio_button :is_validated, true %> 
+      <%= label :is_validated, 'Oui.' %>
+      <%= form.radio_button :is_validated, false %>
+      <%= label :is_validated_no, 'Non.' %>
+    </div>
 
-  <div class="field">
-    <%= form.label :tag_id %>
-    <%= form.number_field :tag_id %>
+    <div class="field">
+      <%= form.select :tag_id, options_for_select(Tag.all.pluck(:name, :id)) %>
+    </div>
   </div>
-
   <div class="actions">
     <%= form.submit %>
   </div>

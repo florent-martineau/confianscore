@@ -14,7 +14,8 @@ class VotesController < ApplicationController
 
   # GET /votes/new
   def new
-    @vote = Vote.new
+    @vote = Vote.new(source_id: params[:source_id])
+    @person = Person.find(params[:source_id])
   end
 
   # GET /votes/1/edit

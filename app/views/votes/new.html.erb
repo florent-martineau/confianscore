@@ -1,5 +1,8 @@
-<h1>New Vote</h1>
+<div id="smart-container">
+    <div class="vote-container">
+        <h2>La phrase suivante a t-elle été prononcée exactement en ces termes par <%= @person.full_name %> ? </h2>
+        <h3>Et si oui, exprime t-elle honnêtement sa pensée ? (formulation à vérifier)</h3>
 
-<%= render 'form', vote: @vote %>
-
-<%= link_to 'Back', votes_path %>
+        <%= render 'form', vote: @vote %>
+    </div>
+</div>

@@ -14,7 +14,7 @@ h2 {
     font-weight: bold;
 }
 
-#person {
+#smart-container  {
     padding: 20px
 }
 
@@ -34,6 +34,9 @@ h2 {
     font-weight: bold;
 }
 
+#vote-validation-field {
+    text-align: center;
+}
 .box {
     display: flex;
  }
@@ -46,7 +49,7 @@ h2 {
     color: white !important;
 }
 
-.person-header, .sources-container {
+.person-header, .sources-container, .vote-container {
     box-shadow: 0 2px 2px 0 rgba(0,0,50,.04);
     background-color: white;
     padding: 50px

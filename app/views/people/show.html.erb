@@ -1,4 +1,4 @@
-<div id="person">
+<div id="smart-container">
   <div class="row person-header">
     <div class="col-md-3">
       <img id="people-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Didier_Raoult.png/260px-Didier_Raoult.png" alt="didier">
@@ -33,7 +33,7 @@
       <div>
         <%= link_to "Ajouter une source", new_source_path({:person_id => @person.id}) %>
       </div>
-      <% @person.sources.each do |source| %>
+      <% Source.validated_by_person(@person.id).each do |source| %>
         <%= source %>
       <% end %>
     </div>
