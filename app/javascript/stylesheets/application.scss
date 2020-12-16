@@ -1,11 +1,37 @@
 @import "~bootstrap/scss/bootstrap";
 
+@font-face {
+    font-family: 'OpenSans';
+    src: url('/assets/OpenSans-Regular.ttf') format('truetype');
+}
+
+body {
+    font-family: 'OpenSans';
+    background-color: #f2f2f5;
+}
+
+h2 {
+    font-weight: bold;
+}
+
 #person {
     padding: 20px
 }
 
 #people-image-info {
     padding-left: 20px
+}
+
+#resume-title {
+    font-weight: bold;
+}
+
+#resume-info {
+    color: #bbbbbb;
+}
+
+#wikilink {
+    font-weight: bold;
 }
 
 .box {
@@ -20,6 +46,11 @@
     color: white !important;
 }
 
-.person-header {
-    border-bottom: 1px solid gray;
+.person-header, .sources-container {
+    box-shadow: 0 2px 2px 0 rgba(0,0,50,.04);
+    background-color: white;
+    padding: 50px
+}
+.sources-container {
+    margin-top: 10px;
 }

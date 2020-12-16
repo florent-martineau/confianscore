@@ -14,7 +14,7 @@ class SourcesController < ApplicationController
 
   # GET /sources/new
   def new
-    @source = Source.new
+    @source = Source.new(person_id: params[:person_id])
   end
 
   # GET /sources/1/edit

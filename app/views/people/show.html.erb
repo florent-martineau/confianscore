@@ -1,20 +1,24 @@
 <div id="person">
   <div class="row person-header">
-    <div class="col-md-8" style="background-color:lavender;">
-      <div class="box">
-        <img id="people-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Didier_Raoult.png/260px-Didier_Raoult.png" alt="didier">
-        <div id="people-image-info">
-          <h2><%= @person.full_name %></h2>
-          <h3>Confianscore : 50%</h3>
-          <div>945 sources</div>
-        </div>
+    <div class="col-md-3">
+      <img id="people-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Didier_Raoult.png/260px-Didier_Raoult.png" alt="didier">
+    </div>
+    <div class="col-md-6">
+      <div id="people-image-info">
+        <h2><%= @person.full_name %></h2>
+        <h3>Confianscore : 50%</h3>
+        <div>945 sources</div>
       </div>
     </div>
-    <div class="col-md-4" style="background-color:lavenderblush;">
+    <div class="col-md-3">
       <div id="wikipedia">
       <% if @person.wikipedia_link.present? %>
-      <div>
+      <div id="wikilink">
+        <i class="fab fa-wikipedia-w"></i>
         <%= link_to "A une fiche Wikipédia.", @person.wikipedia_link %>
+        <div id="resume-info">
+          <%= @person.wiki_summary %>
+        </div>
       </div>
       <% else %>
       <div>
@@ -25,17 +29,16 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-md-8" style="background-color:lavender;">
+    <div class="col-md-8 sources-container">
       <div>
-        <%= link_to "Ajouter une source", new_source_path() %>
+        <%= link_to "Ajouter une source", new_source_path({:person_id => @person.id}) %>
       </div>
       <% @person.sources.each do |source| %>
         <%= source %>
       <% end %>
     </div>
-    <div class="col-md-4" style="background-color:lavenderblush;">
-      <p>A propos de Didier Raoult</p>
-      <%= @person.wiki_summary %>
+    <div class="col-md-4 sources-container">
+      <div id="resume-title">Réseaux sociaux de <%= @person.full_name %></div>     
       <% show_media(@person.media).each do |media| %>
         <%= media %>
       <% end %>
