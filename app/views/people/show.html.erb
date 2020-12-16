@@ -1,11 +1,13 @@
-<div class="container">
+<div id="person">
   <div class="row person-header">
     <div class="col-md-8" style="background-color:lavender;">
-      <img src="didier" alt="didier">
-      <div>
-        <h2><%= @person.full_name %></h2>
-        <h3>Confianscore : 50%</h3>
-        <div>945 sources</div>
+      <div class="box">
+        <img id="people-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Didier_Raoult.png/260px-Didier_Raoult.png" alt="didier">
+        <div id="people-image-info">
+          <h2><%= @person.full_name %></h2>
+          <h3>Confianscore : 50%</h3>
+          <div>945 sources</div>
+        </div>
       </div>
     </div>
     <div class="col-md-4" style="background-color:lavenderblush;">

@@ -1,12 +1,23 @@
 @import "~bootstrap/scss/bootstrap";
 
+#person {
+    padding: 20px
+}
+
+#people-image-info {
+    padding-left: 20px
+}
+
+.box {
+    display: flex;
+ }
 
 .navbar {
     background-color: #517a8b;
 }
 
 .nav-link {
-    color: white;
+    color: white !important;
 }
 
 .person-header {
