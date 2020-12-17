@@ -6,7 +6,7 @@
     <div class="col-md-6">
       <div id="people-image-info">
         <h2><%= @person.full_name %></h2>
-        <h3>Confianscore : <%= (@person.score_value*100).to_s + "%" %></h3>
+        <h3>Confianscore : <%= (@person.score_value*100).round().to_s + "%" %></h3>
         <div>945 sources</div>
       </div>
     </div>
@@ -33,8 +33,10 @@
       <div>
         <%= link_to "Ajouter une source", new_source_path({:person_id => @person.id}) %>
       </div>
-      <% Source.validated_by_person(@person.id).each do |source| %>
-        <%= link_to source.abstract, source_path(source.id) %>
+      <% Source.validated_and_used_by_person(@person.id).each do |source| %>
+        <div>
+          <%= link_to source.abstract, source_path(source.id) %>
+        </div>
       <% end %>
     </div>
     <div class="col-md-4 sources-container">

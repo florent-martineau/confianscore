@@ -32,9 +32,9 @@ class Person < ApplicationRecord
             source.update(used: true)
         end
         new_pv_component = ((points_for_each_source.inject{ |sum, el| sum + el }.to_f) / points_for_each_source.size)
-        last_pv = self.point_verites.last&.value.to_i
+        last_pv = self.point_verites.last&.value.to_f
 
-        if new_pv_component.abs() > last_pv.abs() || ((new_pv_component*last_pv) < 0)
+        if (new_pv_component.abs() > last_pv.abs()) || ((new_pv_component*last_pv) < 0)
             new_pv = (new_pv_component*0.5 + last_pv)/1.5
         else
             new_pv = last_pv

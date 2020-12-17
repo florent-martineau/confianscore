@@ -19,7 +19,7 @@ class Source < ApplicationRecord
     belongs_to :person
     has_many :votes
 
-    scope :validated_by_person, -> (person_id)  { where(is_correct: true, person_id: person_id) }
+    scope :validated_and_used_by_person, -> (person_id)  { where(is_correct: true, person_id: person_id, used: true) }
     scope :pending, -> { where(is_correct: nil) }
     
     def self.new_pendings
@@ -32,7 +32,18 @@ class Source < ApplicationRecord
 
     def score
         coefficients = self.votes.map {|vote| vote.tag.coefficient}
-        ((coefficients.inject{ |sum, el| sum + el }.to_f) / coefficients.size)
+        average_coefficient = ((coefficients.inject{ |sum, el| sum + el }.to_f) / coefficients.size)
+
+        counts = Hash.new(0)
+        coefficients.each { |coefficient| counts[coefficient] += 1 }
+        maxi = counts.values.max
+        coefficients_most_represented = []
+        counts.each do |k, v|
+            coefficients_most_represented << k if v == maxi
+        end
+
+        coefficients_most_represented << average_coefficient
+        (coefficients_most_represented.inject(0){|sum,x| sum + x } / coefficients_most_represented.count).to_f
     end
 
     def abstract_with_name
