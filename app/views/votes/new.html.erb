@@ -1,7 +1,9 @@
 <div id="smart-container">
     <div class="vote-container">
-        <h2>La phrase suivante a t-elle été prononcée exactement en ces termes par <%= @person.full_name %> ? </h2>
-        <h3>Et si oui, exprime t-elle honnêtement sa pensée ? (formulation à vérifier)</h3>
+        <div>La phrase suivante a t-elle été prononcée exactement en ces termes par <%= @person.full_name %> ? </div>
+        <div>Et si oui, exprime t-elle honnêtement sa pensée ? (formulation à vérifier)</div>
+
+        « <a href="<%= @source.link %>"><%= @source.abstract %></a> »
 
         <%= render 'form', vote: @vote %>
     </div>

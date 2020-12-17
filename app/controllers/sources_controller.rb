@@ -4,7 +4,7 @@ class SourcesController < ApplicationController
   # GET /sources
   # GET /sources.json
   def index
-    @sources = Source.pending
+    @sources = Source.pending.includes(:person)
   end
 
   # GET /sources/1

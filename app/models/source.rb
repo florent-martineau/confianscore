@@ -21,6 +21,11 @@ class Source < ApplicationRecord
 
     scope :validated_by_person, -> (person_id)  { where(is_correct: true, person_id: person_id) }
     scope :pending, -> { where(is_correct: nil) }
+    
+    def self.new_pendings
+        Source.pending.first(10)
+    end
+    
     def is_valid?
         is_correct == true
     end
@@ -28,5 +33,9 @@ class Source < ApplicationRecord
     def score
         coefficients = self.votes.map {|vote| vote.tag.coefficient}
         ((coefficients.inject{ |sum, el| sum + el }.to_f) / coefficients.size)
+    end
+
+    def abstract_with_name
+        "« " + abstract + " » - " + person.full_name
     end
 end

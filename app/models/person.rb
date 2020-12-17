@@ -17,6 +17,10 @@ class Person < ApplicationRecord
     has_many :point_verites
     has_many :scores
 
+    def self.last_created
+        Person.last(10).reverse
+    end
+
     def full_name
         first_name + " " + last_name
     end

@@ -34,7 +34,7 @@
         <%= link_to "Ajouter une source", new_source_path({:person_id => @person.id}) %>
       </div>
       <% Source.validated_by_person(@person.id).each do |source| %>
-        <%= source %>
+        <%= link_to source.abstract, source_path(source.id) %>
       <% end %>
     </div>
     <div class="col-md-4 sources-container">
