@@ -17,6 +17,8 @@ class Person < ApplicationRecord
     has_many :point_verites
     has_many :scores
 
+    after_create :get_wikipedia_content
+    
     def self.last_created
         Person.last(10).reverse
     end
@@ -48,6 +50,25 @@ class Person < ApplicationRecord
             0.5
         else
             score_val
+        end
+    end
+
+    def get_wikipedia_content
+        if wikipedia_link.present? && (wikipedia_link.include? "https://fr.")
+            base_url = 'https://fr.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&titles='
+            page_name = wikipedia_link.gsub('https://fr.wikipedia.org/wiki/', '')
+            mechanize = Mechanize.new
+            page = mechanize.get(base_url+page_name)
+            begin
+                if JSON.parse(page.body)["query"]["pages"].values.first["extract"].length > 300
+                    summary = JSON.parse(page.body)["query"]["pages"].values.first["extract"].first(300) + '...'
+                else
+                    summary = JSON.parse(page.body)["query"]["pages"].values.first["extract"]
+                end
+            rescue
+                summary = ''
+            end
+            self.update(wiki_summary: summary)
         end
     end
 end
