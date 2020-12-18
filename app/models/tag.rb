@@ -11,6 +11,7 @@
 
 class Tag < ApplicationRecord
     BASE_TAGS = {
+        "Discours extravagant, présenté comme la réalité" => -1,
         "Mensonge évident" => -1,
         "Fausse information évidente" => -0.9,
         "Réutilisation d'arguments déjà invalidés" => -0.8,
