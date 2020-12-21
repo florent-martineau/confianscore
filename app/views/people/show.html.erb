@@ -34,8 +34,9 @@
         <%= link_to "Ajouter une source", new_source_path({:person_id => @person.id}) %>
       </div>
       <% Source.validated_and_used_by_person(@person.id).each do |source| %>
-        <div>
-          <%= link_to source.abstract, source_path(source.id) %>
+        <div class="row">
+            <div class="col-10 column-with-borders"><%= link_to show_source(source.abstract), source_path(source.id) %></div>
+            <div class="col-2 column-with-borders"><%= gravite(source) %></div>
         </div>
       <% end %>
     </div>
