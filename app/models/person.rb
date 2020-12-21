@@ -29,10 +29,13 @@ class Person < ApplicationRecord
 
     def create_point_verite
         points_for_each_source = []
+        has_one_source_at_least = false
         Source.where(is_correct: true, person_id: id, used: false).includes(:votes).find_each do |source|
+            has_one_source_at_least = true
             points_for_each_source << source.score
             source.update(used: true)
         end
+        return if has_one_source_at_least == false
         new_pv_component = ((points_for_each_source.inject{ |sum, el| sum + el }.to_f) / points_for_each_source.size)
         last_pv = self.point_verites.last&.value.to_f
 
