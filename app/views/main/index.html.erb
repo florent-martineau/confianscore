@@ -11,7 +11,9 @@
     <div class="col-md-4 sources-container">
       <div id="resume-title">Dernières fiches créées</div> 
       <% Person.last_created.each do |person| %>
-        <%= link_to person.full_name, person_path(person.id)  %>
+        <div>
+          <%= link_to person.full_name, person_path(person.id)  %>
+        </div>
       <% end %>   
     </div>
   </div>
