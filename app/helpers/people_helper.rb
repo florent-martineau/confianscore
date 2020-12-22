@@ -29,4 +29,14 @@ module PeopleHelper
             source.first(150) + "..."
         end
     end
+
+    def source_counter(counter)
+        if counter == 0
+            "Aucune source validée pour le moment"
+        elsif counter == 1
+            "Une source validée"
+        elsif counter > 1
+            counter.to_s + " sources validées"
+        end
+    end
 end
