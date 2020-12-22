@@ -4,7 +4,7 @@ module PeopleHelper
         medias_content = []
         medias = JSON.parse(media)
         medias.each do |k, v|
-            medias_content << link_to(k, v)
+            medias_content << link_to(k, v, {"target"=>"_blank"})
         end
         medias_content
     end
