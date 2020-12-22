@@ -25,7 +25,8 @@ class Tag < ApplicationRecord
         "Réfutation d'un argument mineur d'une position avec un argument valide" => 0.7,
         "Reconnaissance sans ambiguïté d'une erreur" => 0.9,
         "Utilisation pertinente d'une étude scientifique de qualité" => 0.9,
-        "Réfutation de l'argument majeur d'une position avec un argument valide" => 1
+        "Réfutation de l'argument majeur d'une position avec un argument valide" => 1,
+        "Annonce clairement un travail comme non approuvé par la communauté scientifique" => 0.5
     }
 
     def self.initialize
