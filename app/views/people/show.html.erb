@@ -7,7 +7,7 @@
       <div id="people-image-info">
         <h2><%= @person.full_name %></h2>
         <h3>Confianscore : <%= (@person.score_value*100).round().to_s + "%" %></h3>
-        <div>945 sources</div>
+        <div><%= Source.validated_and_used_by_person(@person.id).count %></div>
       </div>
     </div>
     <div class="col-md-3">
