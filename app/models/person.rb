@@ -4,6 +4,7 @@
 #
 #  id             :bigint           not null, primary key
 #  first_name     :string
+#  full_name      :string
 #  last_name      :string
 #  media          :json
 #  wiki_summary   :string
@@ -23,8 +24,16 @@ class Person < ApplicationRecord
         Person.last(10).reverse
     end
 
-    def full_name
-        first_name + " " + last_name
+    def self.search_by(keywords)
+        keywords = keywords.downcase
+        res = []
+        
+        Person.find_each do |person|
+            levenshtein = person.levenshtein_distance(keywords)
+            res << [person, levenshtein] if levenshtein < 10
+        end
+        res = res.sort_by {|_key, value| value}
+        res.reverse()
     end
 
     def create_point_verite
@@ -74,4 +83,29 @@ class Person < ApplicationRecord
             self.update(wiki_summary: summary)
         end
     end
+
+    def levenshtein_distance(t)
+        s = self.full_name.downcase
+        m = s.length
+        n = t.length
+        return m if n == 0
+        return n if m == 0
+        d = Array.new(m+1) {Array.new(n+1)}
+      
+        (0..m).each {|i| d[i][0] = i}
+        (0..n).each {|j| d[0][j] = j}
+        (1..n).each do |j|
+          (1..m).each do |i|
+            d[i][j] = if s[i-1] == t[j-1]  # adjust index into string
+                        d[i-1][j-1]       # no operation required
+                      else
+                        [ d[i-1][j]+1,    # deletion
+                          d[i][j-1]+1,    # insertion
+                          d[i-1][j-1]+1,  # substitution
+                        ].min
+                      end
+          end
+        end
+        d[m][n]
+      end
 end

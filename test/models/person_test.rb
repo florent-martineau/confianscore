@@ -4,6 +4,7 @@
 #
 #  id             :bigint           not null, primary key
 #  first_name     :string
+#  full_name      :string
 #  last_name      :string
 #  media          :json
 #  wiki_summary   :string
