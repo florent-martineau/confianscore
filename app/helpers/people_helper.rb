@@ -39,4 +39,20 @@ module PeopleHelper
             counter.to_s + " sources validées"
         end
     end
+
+    def score_label(score)
+        score = score * 100
+        if score < 20
+            label = "Fiabilité catastrophique : "
+        elsif score < 50
+            label = "Fiabilité mauvaise : "
+        elsif score < 55
+            label = "Fiabilité moyenne : "
+        elsif score < 75
+            label = "Fiabilité bonne : "
+        else
+            label = "Fiabilité exceptionnelle : "
+        end
+        label + score.round().to_s + "%"
+    end
 end

@@ -22,11 +22,13 @@ class Tag < ApplicationRecord
         "Utilisation d'un homme de paille" => -0.7,
         "Erreur logique mineure" => -0.4,
         "Promotion du consensus scientifique" => 0.5,
+        "Travaux clairement présentés comme non approuvés par la communauté scientifique" => 0.5,
         "Réfutation d'un argument mineur d'une position avec un argument valide" => 0.7,
+        "Contribution correcte à l'explication d'un travail scientifique" => 0.8,
+        "Démontage précis d'une croyance ou affirmation incorrecte - Débunkage" => 0.8,
         "Reconnaissance sans ambiguïté d'une erreur" => 0.9,
         "Utilisation pertinente d'une étude scientifique de qualité" => 0.9,
-        "Réfutation de l'argument majeur d'une position avec un argument valide" => 1,
-        "Annonce clairement un travail comme non approuvé par la communauté scientifique" => 0.5
+        "Réfutation de l'argument majeur d'une position avec un argument valide" => 1
     }
 
     def self.initialize
