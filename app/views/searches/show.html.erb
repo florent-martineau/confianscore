@@ -9,7 +9,7 @@
           <%= link_to person[0].full_name, person_path(person[0].id) %>
         </div>
         <div class="search-result-details">
-          <%= (person[0].score_value*100).to_s + "% - " + person[0].sources.count.to_s + " sources" %>
+          <%= (person[0].score_value*100).to_i.to_s + "% - " + person[0].sources.count.to_s + " sources" %>
         </div>
       </div>
     <% end %>
