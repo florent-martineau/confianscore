@@ -107,5 +107,6 @@ class Person < ApplicationRecord
           end
         end
         d[m][n]
-      end
+    end
+      
 end

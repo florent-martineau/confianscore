@@ -5,9 +5,9 @@
 <table>
   <thead>
     <tr>
-      <th>Abstract</th>
-      <th>Link</th>
-      <th>Person</th>
+      <th>Profil</th>
+      <th>Extrait</th>
+      <th>Référence</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -15,9 +15,9 @@
   <tbody>
     <% @sources.each do |source| %>
       <tr>
-        <td><%= source.abstract %></td>
-        <td><%= source.link %></td>
         <td><%= source.person.full_name %></td>
+        <td><%= source.abstract %></td>
+        <td><%= link_to "Lien", source.link, "target": "_blank" %></td>
         <td><%= link_to 'Voter', new_vote_path({:source_id => source.id}) %></td>
       </tr>
     <% end %>
