@@ -22,6 +22,10 @@ module PeopleHelper
         end
     end
 
+    def ajoute_le(source)
+        "Ajoutée le : " + source.created_at.strftime("%d/%m/%Y")
+    end
+
     def show_source(source)
         if source.length < 150
             source

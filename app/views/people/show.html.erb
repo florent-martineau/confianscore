@@ -38,7 +38,7 @@
             <div class="col-10 source">
               <%= link_to show_source(source.abstract), source_path(source.id), class: "source-details-link" %>
               <div class="gravite-source">
-                <%= gravite(source) %>
+                <%= ajoute_le(source) + gravite(source) %>
               </div>
             </div>
         </div>
