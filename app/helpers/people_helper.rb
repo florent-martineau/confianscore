@@ -12,13 +12,13 @@ module PeopleHelper
     def gravite(source)
         score = source.score
         if score < -0.5
-            " - Très mauvaise"
+            " - Diminue fortement la fiabilité de la parole de ce profil."
         elsif score < 0
-            " - Mauvaise"
+            " - Diminue la fiabilité de la parole de ce profil."
         elsif score < 0.5
-            " - Positif"
+            " - Augmente la fiabilité de la parole de ce profil."
         else
-            " - Très positif"
+            " - Augmente fortement la fiabilité de la parole de ce profil."
         end
     end
 
