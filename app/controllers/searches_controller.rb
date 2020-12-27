@@ -3,9 +3,9 @@ class SearchesController < ApplicationController
 
   # GET /searches
   # GET /searches.json
-  def index
-    @searches = Search.all
-  end
+  # def index
+  #   @searches = Search.all
+  # end
 
   # GET /searches/1
   # GET /searches/1.json
@@ -20,8 +20,8 @@ class SearchesController < ApplicationController
   end
 
   # GET /searches/1/edit
-  def edit
-  end
+  # def edit
+  # end
 
   # POST /searches
   # POST /searches.json
@@ -41,27 +41,27 @@ class SearchesController < ApplicationController
 
   # PATCH/PUT /searches/1
   # PATCH/PUT /searches/1.json
-  def update
-    respond_to do |format|
-      if @search.update(search_params)
-        format.html { redirect_to @search, notice: 'Search was successfully updated.' }
-        format.json { render :show, status: :ok, location: @search }
-      else
-        format.html { render :edit }
-        format.json { render json: @search.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+  # def update
+  #   respond_to do |format|
+  #     if @search.update(search_params)
+  #       format.html { redirect_to @search, notice: 'Search was successfully updated.' }
+  #       format.json { render :show, status: :ok, location: @search }
+  #     else
+  #       format.html { render :edit }
+  #       format.json { render json: @search.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
 
-  # DELETE /searches/1
-  # DELETE /searches/1.json
-  def destroy
-    @search.destroy
-    respond_to do |format|
-      format.html { redirect_to searches_url, notice: 'Search was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
+  # # DELETE /searches/1
+  # # DELETE /searches/1.json
+  # def destroy
+  #   @search.destroy
+  #   respond_to do |format|
+  #     format.html { redirect_to searches_url, notice: 'Search was successfully destroyed.' }
+  #     format.json { head :no_content }
+  #   end
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.

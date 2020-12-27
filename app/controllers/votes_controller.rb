@@ -20,8 +20,8 @@ class VotesController < ApplicationController
   end
 
   # GET /votes/1/edit
-  def edit
-  end
+  # def edit
+  # end
 
   # POST /votes
   # POST /votes.json
@@ -41,27 +41,27 @@ class VotesController < ApplicationController
 
   # PATCH/PUT /votes/1
   # PATCH/PUT /votes/1.json
-  def update
-    respond_to do |format|
-      if @vote.update(vote_params)
-        format.html { redirect_to @vote, notice: 'Vote was successfully updated.' }
-        format.json { render :show, status: :ok, location: @vote }
-      else
-        format.html { render :edit }
-        format.json { render json: @vote.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+  # def update
+  #   respond_to do |format|
+  #     if @vote.update(vote_params)
+  #       format.html { redirect_to @vote, notice: 'Vote was successfully updated.' }
+  #       format.json { render :show, status: :ok, location: @vote }
+  #     else
+  #       format.html { render :edit }
+  #       format.json { render json: @vote.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
 
-  # DELETE /votes/1
-  # DELETE /votes/1.json
-  def destroy
-    @vote.destroy
-    respond_to do |format|
-      format.html { redirect_to votes_url, notice: 'Vote was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
+  # # DELETE /votes/1
+  # # DELETE /votes/1.json
+  # def destroy
+  #   @vote.destroy
+  #   respond_to do |format|
+  #     format.html { redirect_to votes_url, notice: 'Vote was successfully destroyed.' }
+  #     format.json { head :no_content }
+  #   end
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.
