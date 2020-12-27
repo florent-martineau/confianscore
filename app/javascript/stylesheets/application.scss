@@ -5,6 +5,10 @@
     src: url('/assets/OpenSans-Regular.ttf') format('truetype');
 }
 
+a:hover {
+    background-color: transparent !important;
+}
+
 body {
     font-family: 'OpenSans';
     background-color: #f2f2f5;
@@ -96,4 +100,16 @@ h2 {
 
 .search-result-block {
     margin-top: 15px;
+}
+
+.gravite-source {
+    color: #fdc944 !important;
+}
+
+.source {
+    margin-top: 10px
+}
+
+.source-details-link {
+    color: #517a8b !important;
 }

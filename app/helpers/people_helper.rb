@@ -12,13 +12,13 @@ module PeopleHelper
     def gravite(source)
         score = source.score
         if score < -0.5
-            "Très mauvaise"
+            " - Très mauvaise"
         elsif score < 0
-            "Mauvaise"
+            " - Mauvaise"
         elsif score < 0.5
-            "Positif"
+            " - Positif"
         else
-            "Très positif"
+            " - Très positif"
         end
     end
 

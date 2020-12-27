@@ -35,8 +35,12 @@
       </div>
       <% Source.validated_and_used_by_person(@person.id).each do |source| %>
         <div class="row">
-            <div class="col-10 column-with-borders"><%= link_to show_source(source.abstract), source_path(source.id) %></div>
-            <div class="col-2 column-with-borders"><%= gravite(source) %></div>
+            <div class="col-10 source">
+              <%= link_to show_source(source.abstract), source_path(source.id), class: "source-details-link" %>
+              <div class="gravite-source">
+                <%= gravite(source) %>
+              </div>
+            </div>
         </div>
       <% end %>
     </div>
