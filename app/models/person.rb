@@ -46,7 +46,8 @@ class Person < ApplicationRecord
         end
         return if has_one_source_at_least == false
         new_pv_component = ((points_for_each_source.inject{ |sum, el| sum + el }.to_f) / points_for_each_source.size)
-        last_pv = self.point_verites.last&.value.to_f
+        last_pv = self.point_verites.last&.value
+        last_pv ||= new_pv_component*0.26
 
         if (new_pv_component.abs() > last_pv.abs()) || ((new_pv_component*last_pv) < 0)
             new_pv = (new_pv_component*0.5 + last_pv)/1.5

@@ -1,0 +1,2 @@
+namespace :tag do
+end
