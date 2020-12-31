@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :commentaires
   resources :searches
   #resources :scores
   #resources :point_verites

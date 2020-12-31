@@ -18,6 +18,7 @@ class Source < ApplicationRecord
 
     belongs_to :person
     has_many :votes
+    has_many :commentaires
 
     scope :validated_and_used_by_person, -> (person_id)  { where(is_correct: true, person_id: person_id, used: true) }
     scope :pending, -> { where(is_correct: nil) }
@@ -48,5 +49,9 @@ class Source < ApplicationRecord
 
     def abstract_with_name
         "« " + abstract + " » - " + person.full_name
+    end
+
+    def commentaire
+        commentaire = self.commentaires.sort_by(&:created_at).last
     end
 end

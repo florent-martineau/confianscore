@@ -15,4 +15,9 @@
   <%= @source.person_id %>
 </p>
 
+<p>
+  <strong>Commentaire:</strong>
+  <%= @source.commentaire %>
+</p>
+
 <%= link_to 'Retour - ' + @source.person.full_name, person_path(@source.person_id) %>

@@ -1,0 +1,20 @@
+# == Schema Information
+#
+# Table name: commentaires
+#
+#  id         :bigint           not null, primary key
+#  content    :text
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  source_id  :integer
+#
+
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  source_id: 1
+  content: MyText
+
+two:
+  source_id: 1
+  content: MyText
