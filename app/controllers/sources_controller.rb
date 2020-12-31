@@ -10,6 +10,7 @@ class SourcesController < ApplicationController
   # GET /sources/1
   # GET /sources/1.json
   def show
+    @commentaire = @source.commentaire
   end
 
   # GET /sources/new

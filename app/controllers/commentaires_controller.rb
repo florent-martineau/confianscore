@@ -3,9 +3,9 @@ class CommentairesController < ApplicationController
 
   # GET /commentaires
   # GET /commentaires.json
-  def index
-    @commentaires = Commentaire.all
-  end
+  # def index
+  #   @commentaires = Commentaire.all
+  # end
 
   # GET /commentaires/1
   # GET /commentaires/1.json
@@ -14,7 +14,7 @@ class CommentairesController < ApplicationController
 
   # GET /commentaires/new
   def new
-    @commentaire = Commentaire.new
+    @commentaire = Commentaire.new(source_id: params[:source_id])
   end
 
   # GET /commentaires/1/edit
@@ -41,25 +41,26 @@ class CommentairesController < ApplicationController
   # PATCH/PUT /commentaires/1.json
   def update
     respond_to do |format|
-      if @commentaire.update(commentaire_params)
-        format.html { redirect_to @commentaire, notice: 'Commentaire was successfully updated.' }
-        format.json { render :show, status: :ok, location: @commentaire }
+      @new_commentaire = Commentaire.new(commentaire_params)
+      if @new_commentaire.save
+        format.html { redirect_to @new_commentaire, notice: 'Commentaire was successfully updated.' }
+        format.json { render :show, status: :ok, location: @new_commentaire }
       else
         format.html { render :edit }
-        format.json { render json: @commentaire.errors, status: :unprocessable_entity }
+        format.json { render json: @new_commentaire.errors, status: :unprocessable_entity }
       end
     end
   end
 
   # DELETE /commentaires/1
   # DELETE /commentaires/1.json
-  def destroy
-    @commentaire.destroy
-    respond_to do |format|
-      format.html { redirect_to commentaires_url, notice: 'Commentaire was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
+  # def destroy
+  #   @commentaire.destroy
+  #   respond_to do |format|
+  #     format.html { redirect_to commentaires_url, notice: 'Commentaire was successfully destroyed.' }
+  #     format.json { head :no_content }
+  #   end
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.

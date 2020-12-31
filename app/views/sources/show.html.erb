@@ -17,7 +17,13 @@
 
 <p>
   <strong>Commentaire:</strong>
-  <%= @source.commentaire %>
+  <% if @commentaire.present? %>
+    <%= @source.commentaire.content %>
+    <%= link_to "Modifier ce commentaire", edit_commentaire_path(@source.commentaire.id) %>
+  <% else %>
+    <%= "Pas de commentaire pour l'instant - " %>
+    <%= link_to "Le créer", new_commentaire_path(:source_id => @source.id) %>
+  <% end %>
 </p>
 
 <%= link_to 'Retour - ' + @source.person.full_name, person_path(@source.person_id) %>
