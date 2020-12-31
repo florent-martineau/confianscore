@@ -33,7 +33,7 @@
       <div>
         <%= link_to "Ajouter une source", new_source_path({:person_id => @person.id}) %>
       </div>
-      <% Source.validated_and_used_by_person(@person.id).sort_by(&:created_at).each do |source| %>
+      <% Source.validated_and_used_by_person(@person.id).order('created_at DESC').each do |source| %>
         <div class="row">
             <div class="col-10 source">
               <%= link_to show_source(source.abstract), source_path(source.id), class: "source-details-link" %>
