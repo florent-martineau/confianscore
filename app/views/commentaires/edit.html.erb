@@ -1,6 +1,4 @@
-<h1>Editing Commentaire</h1>
+<h1>Editer le commentaire</h1>
 
 <%= render 'form', commentaire: @commentaire %>
-
-<%= link_to 'Show', @commentaire %> |
-<%= link_to 'Back', commentaires_path %>
+<%= link_to 'Voir la source', source_path(@commentaire.source_id) %>
