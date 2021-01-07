@@ -66,6 +66,10 @@ class Person < ApplicationRecord
         end
     end
 
+    def has_source?
+        self.sources.count > 0
+    end
+
     def get_wikipedia_content
         if wikipedia_link.present? && (wikipedia_link.include? "https://fr.")
             base_url = 'https://fr.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&titles='

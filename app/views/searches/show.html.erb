@@ -13,5 +13,26 @@
         </div>
       </div>
     <% end %>
+    <hr style="margin: 20px">
+    <div>
+      Toutes les fiches existantes actuellement :
+    </div> 
+    <% @all_persons.each do |person| %>
+      <div class="search-result-block">
+        <h4 class="all-profiles">
+          <% if person.has_source? %>
+            <%= link_to person.full_name, person_path(person.id) %>
+            <div class="search-result-details">
+              <%= (person.score_value*100).to_i.to_s + "% - " + person.sources.count.to_s + " sources" %>
+            </div>
+          <% else %>
+            <%= link_to person.full_name, person_path(person.id) %>
+            <div class="search-result-details">
+              Pas de source pour l'instant
+            </div>
+          <% end %>
+        </h4>
+      </div>
+    <% end %>
   </div>
 </div>
