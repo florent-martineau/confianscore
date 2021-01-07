@@ -1,12 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Tags</h1>
+<h1>Catégories</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Coefficient</th>
-      <th>Name</th>
+      <th>Intitulé</th>
+      <th>Coefficient d'importance</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,16 +14,10 @@
   <tbody>
     <% @tags.each do |tag| %>
       <tr>
-        <td><%= tag.coefficient %></td>
         <td><%= tag.name %></td>
-        <td><%= link_to 'Show', tag %></td>
-        <td><%= link_to 'Edit', edit_tag_path(tag) %></td>
-        <td><%= link_to 'Destroy', tag, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= tag.coefficient %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Tag', new_tag_path %>

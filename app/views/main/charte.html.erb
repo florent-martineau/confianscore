@@ -1,11 +1,14 @@
 <div id="smart-container">
   <div class="row">
     <div class="col-md-12 sources-container">
-      <div>
-        Charte : 
-      </div>
+      <h2>
+        Charte (en cours de rédaction) : 
+      </h2>
       <div>
         - Le but du ConfianScore est d'aider les personnes à accorder leur confiance intellectuelle à des personnes intellectuellement fiables.
+      </div>
+      <div>
+        - Le cas classique est : j'entends quelqu'un que je ne connais pas, parler à la télévision d'un sujet sur lequel je ne sais rien. Puis-je m'y fier a priori?
       </div>
       <div>
         - Le but du ConfianScore n'est pas de dire ce qui est vrai ou faux.
@@ -31,6 +34,30 @@
       <div>
         - Un utilisateur n'a pas le droit de voter plusieurs fois pour la même source.
       </div>
+      <div>
+        - Dans l'idéal, chaque source doit avoir une explication pour recontextualiser et aider à comprendre en quoi elle est importante pour connaître la fiabilité du profil.
+      </div>
+      <hr>
+      <h2>
+        Fonctionnement général : 
+      </h2>
+      <div>
+        1°) Si une personne ayant une fiche prononce une parole correspondant à une des <%= link_to "catégories", tags_path() %>, on peut proposer l'ajout de cette parole à la fiche. (via le bouton "Ajouter une source")
+      </div> 
+      <div>
+        2°) Cette parole est proposée à un vote. La communauté ConfianScore peut voter. Ce vote permet de valider la pertinence de la source, mais aussi d'indiquer la catégorie à laquelle la source appartient.
+      </div>
+      <div>
+        3°) Chaque soir (bientôt cela sera hebdomadaire), les scores de chaque fiche sont mises à jour avec les sources récoltées durant la journée. 
+      </div>
+      <div>
+        NB : Une fiche peut être créée selon les critères mentionnées plus haut.
+      </div>
+      <hr>
+      <h2>
+        Calcul du ConfianScore : 
+      </h2>
+      <%= link_to "Explications en détails", "Calcul_ConfianScore.pdf" %>       
     </div>
   </div>
 </div>
