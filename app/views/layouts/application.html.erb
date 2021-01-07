@@ -1,7 +1,17 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ConfianScore</title>
+ 
+    <title><%= @titre %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="<%= @article_description %>" />
+    <meta property="og:title" content="<%= @headline %>" />
+    <meta property="og:image" content="<%= @img_url %>" />
+    <meta property="og:type" content="Article" />
+    <meta property="og:description" content="<%= @article_description %>" />
+    <meta property="og:url" content="<%= request.original_url %>" />
+    <meta property="og:site_name" content="ConfianScore" />
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
