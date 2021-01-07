@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
         begin
           @article_url = request.original_url
           @titre = "ConfianScore"
-          @img_url = ActionController::Base.helpers.asset_path("logo-carre.png")
+          @img_url = request.base_url+ActionController::Base.helpers.image_url("logo-carre.png")
           @article_description = "Score de fiabilité intellectuelle collaboratif."
           @headline = @article_description
           
@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
           @titre = "ConfianScore"
           @headline = @titre
           @article_description = "Score de fiabilité intellectuelle collaboratif."
-          @img_url = ActionController::Base.helpers.asset_path("logo-carre.png")
+          @img_url = request.base_url+ActionController::Base.helpers.image_url("logo-carre.png")
         end
     end
 
