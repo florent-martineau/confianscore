@@ -10,11 +10,14 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  person_id  :integer
+#  user_id    :integer
 #
 
 class Source < ApplicationRecord
     VOTES_REQUIRED = 1
-    VALIDATED_PCT = 0.8
+    REQUIRED_POINT = 100
+    VALIDATED_SOURCE_BONUS = 5
+    REJECTED_SOURCE_BONUS = -5
 
     belongs_to :person
     has_many :votes

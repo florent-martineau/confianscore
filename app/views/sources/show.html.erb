@@ -26,4 +26,9 @@
   <% end %>
 </p>
 
+<p>
+  <%= source_result(@source.is_correct) %>
+</p>  
+  
+
 <%= link_to 'Retour - ' + @source.person.full_name, person_path(@source.person_id) %>

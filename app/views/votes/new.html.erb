@@ -1,10 +1,23 @@
 <div id="smart-container">
     <div class="vote-container">
-        <div>La phrase suivante a t-elle été prononcée exactement en ces termes par <%= @person.full_name %> ? </div>
-        <div>Et si oui, exprime t-elle honnêtement sa pensée ? (formulation à vérifier)</div>
+        <% if @validation_in_progress == true %>
+            <div>La phrase suivante a t-elle été prononcée exactement en ces termes par <%= @person.full_name %> ? </div>
+            <div>Et si oui, exprime t-elle honnêtement sa pensée ? (formulation à vérifier)</div>
 
-        « <a href="<%= @source.link %>"><%= @source.abstract %></a> »
+            « <a href="<%= @source.link %>"><%= @source.abstract %></a> »
 
-        <%= render 'form', vote: @vote %>
+            <% if @already_vote == true %>
+                <div>Vous avez déjà voté pour cette source.</div>
+            <% else %>
+                <%= render 'form', vote: @vote %>
+            <% end %>
+        <% else %>
+            <div>
+                Il n'est plus possible de voter pour cette source.
+            </div>
+            <div>
+                <%= source_result(@source.is_correct) %>
+            </div>
+        <% end %>
     </div>
 </div>

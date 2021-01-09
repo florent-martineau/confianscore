@@ -25,8 +25,14 @@ class SourcesController < ApplicationController
   # POST /sources
   # POST /sources.json
   def create
+    if user_signed_in?
+      user_id = current_user.id
+    else
+      user_id = 0
+    end
     @source = Source.new(source_params)
     @source.used = false
+    @source.user_id = user_id
     
     respond_to do |format|
       if @source.save

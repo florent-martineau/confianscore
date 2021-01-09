@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :users
+  get 'users/:id' => 'users#show'
   resources :commentaires
   resources :searches
   #resources :scores

@@ -1,6 +1,6 @@
 class VotesController < ApplicationController
   before_action :set_vote, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!, only: [:new]
   # GET /votes
   # GET /votes.json
   def index
@@ -14,9 +14,18 @@ class VotesController < ApplicationController
 
   # GET /votes/new
   def new
-    @vote = Vote.new(source_id: params[:source_id])
     @source = Source.find(params[:source_id])
-    @person = Person.find(@source.person_id)
+    if @source.is_correct.nil?
+      @validation_in_progress = true
+      @vote = Vote.new(source_id: params[:source_id])
+      @person = Person.find(@source.person_id)
+      @already_vote = false
+      unless Vote.where(source_id: @source.id, user_id: current_user.id).last.nil?
+        @already_vote = true
+      end
+    else
+      @validation_in_progress = false
+    end
   end
 
   # GET /votes/1/edit
@@ -26,10 +35,15 @@ class VotesController < ApplicationController
   # POST /votes
   # POST /votes.json
   def create
+    
     @vote = Vote.new(vote_params)
-
+    @vote.user_id = current_user.id
+    @vote.points = current_user.points
+    @vote.is_admin_vote = current_user.admin_status
+    
+    source = Source.find(@vote.source_id)
     respond_to do |format|
-      if @vote.save
+      if Vote.where(source_id: @vote.source_id, user_id: @vote.user_id).last.nil? && source.is_correct == nil && @vote.save
         format.html { redirect_to @vote, notice: 'Vote was successfully created.' }
         format.json { render :show, status: :created, location: @vote }
       else

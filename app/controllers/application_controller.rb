@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
 
     before_action :set_schemaorg
+    before_action :configure_devise_parameters, if: :devise_controller?
 
     def set_schemaorg
         begin
@@ -26,4 +27,8 @@ class ApplicationController < ActionController::Base
         end
     end
 
+    def configure_devise_parameters
+
+      devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:nickname, :email, :password, :password_confirmation)}
+    end
 end
