@@ -15,7 +15,7 @@
 
 class Source < ApplicationRecord
     VOTES_REQUIRED = 1
-    REQUIRED_POINT = 100
+    REQUIRED_POINT = 99
     VALIDATED_SOURCE_BONUS = 5
     REJECTED_SOURCE_BONUS = -5
 
