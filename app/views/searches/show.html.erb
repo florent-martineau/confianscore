@@ -15,8 +15,8 @@
     <% end %>
     <hr style="margin: 20px">
     <div>
-      Toutes les fiches existantes actuellement :
-    </div> 
+      Toutes les fiches existantes (<%= @counter.to_s + " ont des sources" %>) actuellement :
+    </div>
     <% @all_persons.each do |person| %>
       <div class="search-result-block">
         <h4 class="all-profiles">

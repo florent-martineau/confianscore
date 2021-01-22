@@ -12,7 +12,12 @@ class SearchesController < ApplicationController
   def show
     current_search = Search.find(params["id"])
     @persons = Person.search_by(current_search.keywords)
-    @all_persons = Person.includes(:sources).all.order("full_name")
+    all_persons = Person.includes(:sources).all
+    @all_persons = all_persons.order("full_name")
+    @counter = 0
+    all_persons.each do |person|
+      @counter += 1 if person.point_verites.count > 0
+    end
   end
 
   # GET /searches/new
