@@ -25,7 +25,7 @@
     </div>
 
     <div class="field">
-      <%= form.select :tag_id, options_for_select(Tag.all.pluck(:name, :id)) %>
+      <%= form.select :tag_id, options_for_select(Tag.order_by_coefficient.pluck(:name, :id)) %>
     </div>
   </div>
   <div class="actions">

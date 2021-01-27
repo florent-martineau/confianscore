@@ -22,6 +22,7 @@ class Tag < ApplicationRecord
         "Utilisation d'un homme de paille" => -0.7,
         "Erreur logique mineure" => -0.4,
         "Promotion du consensus scientifique" => 0.5,
+        "Promotion de l'esprit critique" => 0.5,
         "Travaux clairement présentés comme non approuvés par la communauté scientifique" => 0.5,
         "Réfutation d'un argument mineur d'une position avec un argument valide" => 0.7,
         "Contribution correcte à l'explication d'un travail scientifique" => 0.8,
@@ -37,5 +38,9 @@ class Tag < ApplicationRecord
             tag.coefficient = v
             tag.save
         end 
+    end
+
+    def self.order_by_coefficient
+        self.order(:coefficient)
     end
 end
