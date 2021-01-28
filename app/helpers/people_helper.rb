@@ -51,7 +51,7 @@ module PeopleHelper
         elsif score < 50
             label = "Fiabilité mauvaise : "
         elsif score < 55
-            label = "Fiabilité moyenne : "
+            label = "Fiabilité inconnue : "
         elsif score < 75
             label = "Fiabilité bonne : "
         else
