@@ -44,14 +44,16 @@ module PeopleHelper
         end
     end
 
-    def score_label(score)
+    def score_label(score, source_count=0)
         score = score * 100
         if score < 20
             label = "Fiabilité catastrophique : "
         elsif score < 50
             label = "Fiabilité mauvaise : "
-        elsif score < 55
+        elsif score < 55 && source_count < 2
             label = "Fiabilité inconnue : "
+        elsif score < 55
+            label = "Fiabilité moyenne : "
         elsif score < 75
             label = "Fiabilité bonne : "
         else
