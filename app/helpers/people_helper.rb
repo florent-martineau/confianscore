@@ -62,13 +62,4 @@ module PeopleHelper
         label + score.round().to_s + "%"
     end
 
-    def displayed_name(person)
-      if person.nickname.present? && person.full_name.present?
-        person.full_name + " - " + person.nickname
-      elsif person.full_name.present?
-        person.full_name
-      elsif person.nickname.present?
-        person.nickname
-      end
-    end
 end

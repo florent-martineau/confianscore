@@ -25,7 +25,7 @@
       <div id="resume-title">Dernières fiches créées</div>
       <% Person.last_created.each do |person| %>
         <div>
-          <%= link_to person.full_name, person_path(person.id)  %>
+          <%= link_to displayed_name(person), person_path(person.id)  %>
         </div>
       <% end %>
     </div>

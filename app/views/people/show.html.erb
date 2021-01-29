@@ -45,7 +45,7 @@
       <% end %>
     </div>
     <div class="col-md-4 sources-container">
-      <div id="resume-title">Réseaux sociaux de <%= @person.full_name %></div>
+      <div id="resume-title">Réseaux sociaux de <%= displayed_name(@person) %></div>
       <% show_media(@person.media).each do |media| %>
         <%= media %>
       <% end %>

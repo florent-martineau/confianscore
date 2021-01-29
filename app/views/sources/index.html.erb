@@ -15,7 +15,7 @@
   <tbody>
     <% @sources.each do |source| %>
       <tr>
-        <td><%= source.person.full_name %></td>
+        <td><%= displayed_name(source.person) %></td>
         <td><%= source.abstract %></td>
         <td><%= link_to "Lien", source.link, "target": "_blank" %></td>
         <td><%= link_to 'Voter', new_vote_path({:source_id => source.id}) %></td>

@@ -10,12 +10,12 @@ class ApplicationController < ActionController::Base
           @img_url = request.base_url+ActionController::Base.helpers.image_url("logo-carre.png")
           @article_description = "Score de fiabilité intellectuelle collaboratif."
           @headline = @article_description
-          
+
           parsed_url = @article_url.split("/")
           if parsed_url.last.to_i != 0 && parsed_url.include?("people")
             person_id = parsed_url.last.to_i
             person = Person.find(person_id)
-            @titre = person.full_name + " - " + ((person.score_value*100).to_i.to_s) + "%"
+            @titre = displayed_name(person) + " - " + ((person.score_value*100).to_i.to_s) + "%"
             @headline = @titre
           end
         rescue
