@@ -8,7 +8,9 @@
         Dernières sources en attente :
       </div>
       <% Source.new_pendings.each do |source| %>
-        <%= link_to source.abstract_with_name, new_vote_path({:source_id => source.id}) %>
+        <div>
+          <%= link_to source.abstract_with_name, new_vote_path({:source_id => source.id}) %>
+        </div>
       <% end %>
       <div>
         Dernières sources validées :
