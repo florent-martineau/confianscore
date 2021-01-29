@@ -7,6 +7,7 @@
 #  full_name      :string
 #  last_name      :string
 #  media          :json
+#  nickname       :string
 #  wiki_summary   :string
 #  wikipedia_link :string
 #  created_at     :datetime         not null

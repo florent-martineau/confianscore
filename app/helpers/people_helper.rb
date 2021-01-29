@@ -61,4 +61,14 @@ module PeopleHelper
         end
         label + score.round().to_s + "%"
     end
+
+    def displayed_name(person)
+      if !person.nickname.empty? && !person.full_name.empty?
+        person.full_name + " - " + person.nickname
+      elsif !person.full_name.empty?
+        person.full_name
+      elsif !person.nickname.empty?
+        person.nickname
+      end
+    end
 end
