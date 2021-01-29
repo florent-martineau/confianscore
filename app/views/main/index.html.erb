@@ -10,14 +10,20 @@
       <% Source.new_pendings.each do |source| %>
         <%= link_to source.abstract_with_name, new_vote_path({:source_id => source.id}) %>
       <% end %>
+      <div>
+        Dernières sources validées :
+      </div>
+      <% Source.last_validated.each do |source| %>
+        <%= link_to source.abstract_with_name, source_path(source.id) %>
+      <% end %>
     </div>
     <div class="col-md-4 sources-container">
-      <div id="resume-title">Dernières fiches créées</div> 
+      <div id="resume-title">Dernières fiches créées</div>
       <% Person.last_created.each do |person| %>
         <div>
           <%= link_to person.full_name, person_path(person.id)  %>
         </div>
-      <% end %>   
+      <% end %>
     </div>
   </div>
 </div>

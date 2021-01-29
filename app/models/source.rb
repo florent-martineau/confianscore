@@ -25,11 +25,15 @@ class Source < ApplicationRecord
 
     scope :validated_and_used_by_person, -> (person_id)  { where(is_correct: true, person_id: person_id, used: true) }
     scope :pending, -> { where(is_correct: nil) }
-    
+
     def self.new_pendings
         Source.pending.first(10)
     end
-    
+
+    def self.last_validated
+      Source.where(used: true).last(10).reverse
+    end
+
     def is_valid?
         is_correct == true
     end
