@@ -6,7 +6,7 @@
     <div class="col-md-6">
       <div id="people-image-info">
         <h2><%= @person.full_name %></h2>
-        <h3><%= score_label(@person.score_value) %></h3>
+        <h3><%= score_label(@person.score_value, @person.sources.count) %></h3>
         <div><%= source_counter(Source.validated_and_used_by_person(@person.id).count) %></div>
       </div>
     </div>
