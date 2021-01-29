@@ -14,7 +14,9 @@
         Dernières sources validées :
       </div>
       <% Source.last_validated.each do |source| %>
-        <%= link_to source.abstract_with_name, source_path(source.id) %>
+        <div>
+          <%= link_to source.abstract_with_name, source_path(source.id) %>
+        </div>
       <% end %>
     </div>
     <div class="col-md-4 sources-container">
