@@ -8,7 +8,7 @@
         Dernières sources en attente :
       </div>
       <% Source.new_pendings.each do |source| %>
-        <div>
+        <div style="display: inline list-item;">
           <%= link_to source.abstract_with_name, new_vote_path({:source_id => source.id}) %>
         </div>
       <% end %>
@@ -16,7 +16,7 @@
         Dernières sources validées :
       </div>
       <% Source.last_validated.each do |source| %>
-        <div>
+        <div style="display: inline list-item;">
           <%= link_to source.abstract_with_name, source_path(source.id) %>
         </div>
       <% end %>
