@@ -20,7 +20,7 @@ class Person < ApplicationRecord
     has_many :scores, :dependent => :delete_all
 
     after_create :get_wikipedia_content
-    
+
     def self.last_created
         Person.last(10).reverse
     end
@@ -28,7 +28,7 @@ class Person < ApplicationRecord
     def self.search_by(keywords)
         keywords = keywords.downcase
         res = []
-        
+
         Person.find_each do |person|
             levenshtein = person.levenshtein_distance(keywords)
             res << [person, levenshtein] if levenshtein < 10
@@ -90,6 +90,16 @@ class Person < ApplicationRecord
         end
     end
 
+    def displayed_name
+      if self.nickname.present? && self.full_name.present?
+        self.full_name + " (" + self.nickname + ")"
+      elsif self.full_name.present?
+        self.full_name
+      elsif self.nickname.present?
+        self.nickname
+      end
+    end
+
     def levenshtein_distance(t)
         s = self.full_name.downcase
         m = s.length
@@ -97,7 +107,7 @@ class Person < ApplicationRecord
         return m if n == 0
         return n if m == 0
         d = Array.new(m+1) {Array.new(n+1)}
-      
+
         (0..m).each {|i| d[i][0] = i}
         (0..n).each {|j| d[0][j] = j}
         (1..n).each do |j|
@@ -120,5 +130,5 @@ class Person < ApplicationRecord
         self.point_verites.destroy_all
         self.scores.destroy_all
     end
-      
+
 end

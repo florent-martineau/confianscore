@@ -55,7 +55,7 @@ class Source < ApplicationRecord
     end
 
     def abstract_with_name
-        "« " + abstract + " » - " + displayed_name(person)
+        "« " + abstract + " » - " + person.displayed_name
     end
 
     def commentaire
