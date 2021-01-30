@@ -4,6 +4,7 @@
         Score de fiabilité intellectuelle collaboratif.
     </h1>
     <div class="col-md-8 sources-container">
+      <p>
       <div>
         Dernières sources en attente :
       </div>
@@ -12,6 +13,8 @@
           <%= link_to source.abstract_with_name, new_vote_path({:source_id => source.id}) %>
         </div>
       <% end %>
+      </p>
+      <p>
       <div>
         Dernières sources validées :
       </div>
@@ -20,6 +23,7 @@
           <%= link_to source.abstract_with_name, source_path(source.id) %>
         </div>
       <% end %>
+      </p>
     </div>
     <div class="col-md-4 sources-container">
       <div id="resume-title">Dernières fiches créées</div>
