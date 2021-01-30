@@ -18,7 +18,7 @@
       <div>
         Dernières sources validées :
       </div>
-      <% Source.last_validated.each do |source| %>
+      <% Source.last_correct.each do |source| %>
         <div style="display: inline-block;">
           <%= link_to source.abstract_with_name, source_path(source.id) %>
         </div>

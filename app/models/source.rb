@@ -35,6 +35,10 @@ class Source < ApplicationRecord
       Source.where(used: true).last(10).reverse
     end
 
+    def self.last_correct
+      Source.where(is_correct: true).last(10).reverse
+    end
+
     def is_valid?
         is_correct == true
     end
