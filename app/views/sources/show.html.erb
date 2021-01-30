@@ -37,11 +37,11 @@
 
 <p>
   <strong>Discussion :</strong>
-  <% @source.messages.find_each do |message| %>
-    <p>
-      <%= message_displayable(message) %>
-    </p>
-  <% end %>
+  <div id="discussion-messages">
+    <% @source.messages.find_each do |message| %>
+        <%= message_displayable(message) %>
+    <% end %>
+  </div>
   </br>
   <% if current_user %>
     <%= link_to "Participer à la discussion", new_message_path(:source_id => @source.id) %>

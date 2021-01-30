@@ -21,11 +21,11 @@
         <% end %>
         <hr>
         <div>Discussions</div>
-        <% @source.messages.find_each do |message| %>
-          <p>
-            <%= message_displayable(message) %>
-          </p>
-        <% end %>
+        <div id="discussion-messages">
+          <% @source.messages.find_each do |message| %>
+              <%= message_displayable(message) %>
+          <% end %>
+        </div>
         <%= link_to "Participer à la discussion", new_message_path(:source_id => @source.id) %>
     </div>
 </div>
