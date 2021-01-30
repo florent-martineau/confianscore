@@ -24,7 +24,13 @@ class PeopleController < ApplicationController
   # POST /people
   # POST /people.json
   def create
-    @person = Person.new(person_params)
+    @person = Person.new(
+      first_name: person_params["first_name"],
+      last_name: person_params["last_name"],
+      wikipedia_link: person_params["wikipedia_link"],
+      nickname: person_params["nickname"],
+    )
+    @person.media = @person.define_media(person_params)
     @person.full_name = @person.first_name + " " + @person.last_name
     respond_to do |format|
       if @person.save
@@ -69,6 +75,6 @@ class PeopleController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def person_params
-      params.require(:person).permit(:first_name, :last_name, :wikipedia_link, :media, :nickname)
+      params.require(:person).permit(:first_name, :last_name, :wikipedia_link, :nickname, :youtube, :twitter, :instagram, :facebook)
     end
 end

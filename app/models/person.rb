@@ -21,6 +21,12 @@ class Person < ApplicationRecord
 
     after_create :get_wikipedia_content
 
+    MEDIAS = {
+      "facebook" => "Facebook",
+      "youtube" => "YouTube",
+      "twitter" => "Twitter",
+      "instagram" => "Instagram"
+    }
     def self.last_created
         Person.last(10).reverse
     end
@@ -69,6 +75,14 @@ class Person < ApplicationRecord
 
     def has_source?
         self.sources.count > 0
+    end
+
+    def define_media(params)
+      res = {}
+      MEDIAS.each do |k, v|
+        res[v] = params[k] if params[k].present?
+      end
+      res.to_json
     end
 
     def get_wikipedia_content
