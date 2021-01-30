@@ -47,7 +47,8 @@ class PeopleController < ApplicationController
   # PATCH/PUT /people/1.json
   def update
     respond_to do |format|
-      if @person.update(person_params)
+      @person.media = @person.define_media(person_params)
+      if @person.save
         format.html { redirect_to @person, notice: 'Person was successfully updated.' }
         format.json { render :show, status: :ok, location: @person }
       else
