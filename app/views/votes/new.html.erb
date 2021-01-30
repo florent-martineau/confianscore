@@ -2,8 +2,8 @@
     <div class="vote-container">
         <% if @validation_in_progress == true %>
             <div>La phrase suivante a t-elle été prononcée exactement en ces termes par <%= @person.full_name %> ? </div>
-            <div>Et si oui, exprime t-elle honnêtement sa pensée ? (formulation à vérifier)</div>
-
+            <div>Et si oui, exprime t-elle honnêtement sa pensée ? </div>
+            <div>Et si oui, est-elle de nature à avoir des conséquences sur l'esprit critique du public ? </div>
             « <a href="<%= @source.link %>"><%= @source.abstract %></a> »
 
             <% if @already_vote == true %>
@@ -19,5 +19,13 @@
                 <%= source_result(@source.is_correct) %>
             </div>
         <% end %>
+        <hr>
+        <div>Discussions</div>
+        <% @source.messages.find_each do |message| %>
+          <p>
+            <%= message_displayable(message) %>
+          </p>
+        <% end %>
+        <%= link_to "Participer à la discussion", new_message_path(:source_id => @source.id) %>
     </div>
 </div>

@@ -11,6 +11,9 @@ class SourcesController < ApplicationController
   # GET /sources/1.json
   def show
     @commentaire = @source.commentaire
+    if current_user
+      @message = Message.new
+    end
   end
 
   # GET /sources/new
@@ -33,7 +36,7 @@ class SourcesController < ApplicationController
     @source = Source.new(source_params)
     @source.used = false
     @source.user_id = user_id
-    
+
     respond_to do |format|
       if @source.save
         format.html { redirect_to @source, notice: 'Source was successfully created.' }

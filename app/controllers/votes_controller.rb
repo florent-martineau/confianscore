@@ -20,6 +20,7 @@ class VotesController < ApplicationController
       @vote = Vote.new(source_id: params[:source_id])
       @person = Person.find(@source.person_id)
       @already_vote = false
+      @message = Message.new
       unless Vote.where(source_id: @source.id, user_id: current_user.id).last.nil?
         @already_vote = true
       end
@@ -35,12 +36,12 @@ class VotesController < ApplicationController
   # POST /votes
   # POST /votes.json
   def create
-    
+
     @vote = Vote.new(vote_params)
     @vote.user_id = current_user.id
     @vote.points = current_user.points
     @vote.is_admin_vote = current_user.admin_status
-    
+
     source = Source.find(@vote.source_id)
     respond_to do |format|
       if Vote.where(source_id: @vote.source_id, user_id: @vote.user_id).last.nil? && source.is_correct == nil && @vote.save

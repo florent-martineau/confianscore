@@ -32,3 +32,20 @@
 
 
 <%= link_to 'Retour - ' + displayed_name(@source.person), person_path(@source.person_id) %>
+
+<hr>
+
+<p>
+  <strong>Discussion :</strong>
+  <% @source.messages.find_each do |message| %>
+    <p>
+      <%= message_displayable(message) %>
+    </p>
+  <% end %>
+  </br>
+  <% if current_user %>
+    <%= link_to "Participer à la discussion", new_message_path(:source_id => @source.id) %>
+  <% else %>
+    <%= link_to "Se connecter pour participer à la discussion", new_user_session_path() %>
+  <% end %>
+</p>

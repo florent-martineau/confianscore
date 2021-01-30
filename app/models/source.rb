@@ -22,6 +22,7 @@ class Source < ApplicationRecord
     belongs_to :person
     has_many :votes
     has_many :commentaires
+    has_many :messages
 
     scope :validated_and_used_by_person, -> (person_id)  { where(is_correct: true, person_id: person_id, used: true) }
     scope :pending, -> { where(is_correct: nil) }
