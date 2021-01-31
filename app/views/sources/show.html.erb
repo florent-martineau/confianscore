@@ -1,22 +1,22 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Abstract:</strong>
+  <strong>Extrait :</strong>
   <%= @source.abstract %>
 </p>
 
 <p>
-  <strong>Link:</strong>
+  <strong>Lien :</strong>
   <%= link_to "Voir la source", @source.link %>
 </p>
 
 <p>
-  <strong>Person:</strong>
-  <%= @source.person_id %>
+  <strong>Prononcée par :</strong>
+  <%= displayed_name(@source.person) %>
 </p>
 
 <p>
-  <strong>Commentaire:</strong>
+  <strong>Commentaire :</strong>
   <% if @commentaire.present? %>
     <%= @source.commentaire.content %>
     <%= link_to "Modifier ce commentaire", edit_commentaire_path(@source.commentaire.id) %>
