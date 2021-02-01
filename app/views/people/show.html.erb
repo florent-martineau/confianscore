@@ -1,7 +1,11 @@
 <div id="smart-container">
   <div class="row person-header">
     <div class="col-md-3" id="image-container">
-      <%= image_tag("default_guy.webp", alt: "Default image", id: "people-image") %>
+      <% if @person.photo_url.nil? %>
+        <%= image_tag("default_guy.webp", alt: "Default image", id: "people-image") %>
+      <% else %>
+        <img id="people-image" src="<%= @person.photo_url %>">
+      <% end %>
     </div>
     <div class="col-md-6">
       <div id="people-image-info">
