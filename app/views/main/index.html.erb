@@ -1,6 +1,6 @@
 <div id="smart-container">
   <div class="row">
-    <h1 class="col-md-12 sources-container">
+    <h1 class="col-md-12 sources-container" style="text-align: center;">
         Score de fiabilité intellectuelle collaboratif.
     </h1>
     <div class="col-md-8 sources-container">
@@ -9,7 +9,7 @@
         Dernières sources en attente :
       </div>
       <% Source.new_pendings.each do |source| %>
-        <div style="display: inline-block;">
+        <div class="source-lis">
           <%= link_to source.abstract_with_name, new_vote_path({:source_id => source.id}) %>
         </div>
       <% end %>
@@ -19,7 +19,7 @@
         Dernières sources validées :
       </div>
       <% Source.last_correct.each do |source| %>
-        <div style="display: inline-block;">
+        <div class="source-lis">
           <%= link_to source.abstract_with_name, source_path(source.id) %>
         </div>
       <% end %>
