@@ -50,6 +50,19 @@ h2 {
 #vote-validation-field {
     text-align: center;
 }
+
+#quote {
+  font-weight: 800;
+  font-size: 18px;
+  padding: 30px;
+}
+
+#ans-block {
+  font-size: 14px;
+  padding: 5px;
+  border: 1px solid black;
+}
+
 .box {
     display: flex;
  }
@@ -127,4 +140,8 @@ h2 {
 
 .source-colorized {
   color: #517a8b !important;
+}
+
+.quote-ans {
+  padding: 5px
 }

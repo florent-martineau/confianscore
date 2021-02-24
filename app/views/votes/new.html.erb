@@ -1,11 +1,14 @@
 <div id="smart-container">
     <div class="vote-container">
         <% if @validation_in_progress == true %>
-            <div>La phrase suivante a t-elle été prononcée exactement en ces termes par <%= @person.full_name %> ? </div>
-            <div>Et si oui, exprime t-elle honnêtement sa pensée ? </div>
-            <div>Et si oui, est-elle de nature à avoir des conséquences sur l'esprit critique du public ? </div>
-            « <a href="<%= @source.link %>"><%= @source.abstract %></a> »
-
+            <div id="ans-block">
+              <div class="quote-ans">La phrase suivante a t-elle été prononcée exactement en ces termes par <%= @person.full_name %> ? </div>
+              <div class="quote-ans">Et si oui, exprime t-elle honnêtement sa pensée ? </div>
+              <div class="quote-ans">Et si oui, est-elle de nature à avoir des conséquences sur l'esprit critique du public ? </div>
+            </div>
+            <div id="quote">
+              « <a href="<%= @source.link %>"><%= @source.abstract %></a> »
+            </div
             <% if @already_vote == true %>
                 <div>Vous avez déjà voté pour cette source.</div>
             <% else %>

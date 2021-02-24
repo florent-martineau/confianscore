@@ -18,7 +18,7 @@
 
   <div id="vote-validation-field">
     <div class="field">
-      <%= form.radio_button :is_validated, true %> 
+      <%= form.radio_button :is_validated, true %>
       <%= label :is_validated, 'Oui.' %>
       <%= form.radio_button :is_validated, false %>
       <%= label :is_validated_no, 'Non.' %>
@@ -29,6 +29,6 @@
     </div>
   </div>
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Voter" %>
   </div>
 <% end %>
