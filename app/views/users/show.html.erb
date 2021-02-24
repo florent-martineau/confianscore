@@ -1,7 +1,11 @@
 <% if @user %>
     <h1><%= @user.nickname %></h1>
     <p>Réputation : <%= @user.points %></p>
-
+    <br>
+    <p>Votes</p>
+    <% @user.votes.where(is_validated: true).reverse_each do |vote| %>
+    <p><%= link_to "A voté pour : " + vote.source_id.to_s, source_path(vote.source_id) %></p>
+    <% end %>
 <% else %>
     <h1>404</h1>
     <p>L'utilisateur n'existe pas</p>
