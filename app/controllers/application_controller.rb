@@ -2,6 +2,13 @@ class ApplicationController < ActionController::Base
 
     before_action :set_schemaorg
     before_action :configure_devise_parameters, if: :devise_controller?
+    before_action :redirect_subdomain
+
+    def redirect_subdomain
+      if request.host == 'www.confianscore.org'
+        redirect_to 'https://confianscore.org' + request.fullpath, :status => 301
+      end
+    end
 
     def set_schemaorg
         begin
