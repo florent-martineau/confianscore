@@ -115,6 +115,33 @@ class Person < ApplicationRecord
       end
     end
 
+    def seo_description
+      self.full_name + " a une " + self.fiabilite_label + " : " + (self.last_score*100).to_s + "%"
+    end
+
+    def last_score
+      score = self.scores.last
+      score ||= 0.5
+    end
+
+    def fiabilite_label
+      source_count = self.sources.count
+      score = last_score * 100
+      if score < 20
+          label = "fiabilité catastrophique"
+      elsif score < 50
+          label = "fiabilité mauvaise"
+      elsif score < 55 && source_count < 2
+          label = "fiabilité inconnue"
+      elsif score < 55
+          label = "fiabilité moyenne"
+      elsif score < 75
+          label = "fiabilité bonne"
+      else
+          label = "fiabilité exceptionnelle"
+      end
+    end
+
     def levenshtein_distance(t)
         if self.full_name.present?
           s = self.full_name&.downcase.to_s
