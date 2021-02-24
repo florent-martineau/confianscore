@@ -12,13 +12,11 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :abstract %>
-    <%= form.text_area :abstract %>
+    <%= form.text_area :abstract, :placeholder => "Qu'a dit cette personne ?", :required => true, :id => "text-source" %>
   </div>
 
   <div class="field">
-    <%= form.label :link %>
-    <%= form.text_field :link %>
+    <%= form.text_field :link, :placeholder => "Lien vers la source", :required => true, :id => "link-source" %>
   </div>
 
   <div class="field" hidden>
@@ -27,6 +25,6 @@
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Ajouter une source" %>
   </div>
 <% end %>

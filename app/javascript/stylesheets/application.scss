@@ -63,6 +63,17 @@ h2 {
   border: 1px solid black;
 }
 
+#text-source {
+  width: 100%;
+  min-height: 140px;
+  padding: 8px;
+}
+
+#link-source {
+  min-width: 345px;
+  padding: 8px;
+}
+
 .box {
     display: flex;
  }
