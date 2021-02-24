@@ -37,6 +37,8 @@ class User < ApplicationRecord
 
   after_create :check_nickname
 
+  has_many :votes
+  
   def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup
 
@@ -53,5 +55,5 @@ class User < ApplicationRecord
     end
   end
 
-  
+
 end
