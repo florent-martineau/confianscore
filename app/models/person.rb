@@ -116,11 +116,11 @@ class Person < ApplicationRecord
     end
 
     def seo_description
-      self.full_name + " a une " + self.fiabilite_label + " : " + (self.last_score*100).to_s + "%"
+      self.full_name + " a une " + self.fiabilite_label + " : " + ((self.last_score*100).to_i).to_s + "%"
     end
 
     def last_score
-      score = self.scores.last
+      score = self.scores.last.value
       score ||= 0.5
     end
 
