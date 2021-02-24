@@ -66,6 +66,11 @@ GEM
       zeitwerk (~> 2.2, >= 2.2.2)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
+    ahoy_matey (3.1.0)
+      activesupport (>= 5)
+      device_detector
+      geocoder (>= 1.4.5)
+      safely_block (>= 0.2.1)
     awesome_print (1.8.0)
     bcrypt (3.1.16)
     bindex (0.8.1)
@@ -86,6 +91,7 @@ GEM
     concurrent-ruby (1.1.8)
     connection_pool (2.2.3)
     crass (1.0.6)
+    device_detector (1.0.5)
     devise (4.7.3)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -95,11 +101,13 @@ GEM
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
     equalizer (0.0.11)
+    errbase (0.2.1)
     erubi (1.10.0)
     ffi (1.14.2)
     ffi-compiler (1.0.1)
       ffi (>= 1.0.0)
       rake
+    geocoder (1.6.5)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     http (4.4.1)
@@ -203,6 +211,8 @@ GEM
       actionpack (>= 5.0)
       railties (>= 5.0)
     rubyzip (2.3.0)
+    safely_block (0.3.0)
+      errbase (>= 0.1.1)
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
     sassc (2.4.0)
@@ -277,6 +287,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  ahoy_matey
   annotate!
   awesome_print
   bootsnap (>= 1.4.2)

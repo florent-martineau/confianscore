@@ -10,6 +10,7 @@ class PeopleController < ApplicationController
   # GET /people/1
   # GET /people/1.json
   def show
+    ahoy.track "Profil consulté", id: @person.id, name: @person.displayed_name
   end
 
   # GET /people/new
