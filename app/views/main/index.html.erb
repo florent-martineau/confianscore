@@ -8,7 +8,10 @@
       <div>
         Dernières sources en attente :
       </div>
-      <% Source.new_pendings.each_with_index do |source, index| %>
+      <% if @pendings.count == 0 %>
+      <div class="source-lis">Pas de source en attente de validation</div>
+      <% end %>
+      <% @pendings.each_with_index do |source, index| %>
       <div class="source-lis">
         <% if index.even? %>
         <%= link_to source.abstract_with_name, new_vote_path({:source_id => source.id}), :class => 'source-colorized' %>
@@ -22,7 +25,7 @@
       <div>
         Dernières sources validées :
       </div>
-      <% Source.last_correct.each_with_index do |source, index| %>
+      <% @last_corrects.each_with_index do |source, index| %>
         <div class="source-lis">
           <% if index.even? %>
           <%= link_to source.abstract_with_name, source_path(source.id), :class => 'source-colorized' %>

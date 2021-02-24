@@ -13,6 +13,9 @@
   </thead>
 
   <tbody>
+    <% if @sources.count == 0 %>
+    <tr>Pas de source en attente de validation</tr>
+    <% end %>
     <% @sources.each do |source| %>
       <tr>
         <td><%= displayed_name(source.person) %></td>
