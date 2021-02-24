@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
           if parsed_url.last.to_i != 0 && parsed_url.include?("people")
             person_id = parsed_url.last.to_i
             person = Person.find(person_id)
-            @titre = displayed_name(person) + " - " + ((person.score_value*100).to_i.to_s) + "%"
+            @titre = person.displayed_name + " - " + ((person.score_value*100).to_i.to_s) + "%"
             @headline = @titre
           end
         rescue
