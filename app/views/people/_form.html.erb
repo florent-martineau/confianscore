@@ -12,12 +12,12 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :first_name %>
+    <%= form.label :prénom %>
     <%= form.text_field :first_name %>
   </div>
 
   <div class="field">
-    <%= form.label :last_name %>
+    <%= form.label :nom %>
     <%= form.text_field :last_name %>
   </div>
 
@@ -27,7 +27,7 @@
   </div>
 
   <div class="field">
-    <%= form.label :wikipedia_link %>
+    <%= form.label :wikipédia %>
     <%= form.text_field :wikipedia_link %>
   </div>
 
@@ -53,6 +53,6 @@
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Créer" %>
   </div>
 <% end %>
