@@ -8,6 +8,8 @@
 #  last_name      :string
 #  media          :json
 #  nickname       :string
+#  photo_auteur   :string
+#  photo_licence  :string
 #  photo_url      :string
 #  wiki_summary   :string
 #  wikipedia_link :string
@@ -84,6 +86,13 @@ class Person < ApplicationRecord
         res[v] = params[k] if params[k].present?
       end
       res.to_json
+    end
+
+    def licence
+      text = [photo_auteur, photo_licence].join(", ")
+      text.slice!(0) if text[0] == ","
+      text = text.delete_suffix(', ')
+      text
     end
 
     def get_wikipedia_content

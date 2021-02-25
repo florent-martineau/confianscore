@@ -8,6 +8,8 @@
 #  last_name      :string
 #  media          :json
 #  nickname       :string
+#  photo_auteur   :string
+#  photo_licence  :string
 #  photo_url      :string
 #  wiki_summary   :string
 #  wikipedia_link :string

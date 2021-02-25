@@ -3,8 +3,11 @@
     <div class="col-md-3" id="image-container">
       <% if @person.photo_url.nil? %>
         <%= image_tag("default_guy.webp", alt: "Default image", id: "people-image") %>
-      <% else %>
+       <% else %>
         <img id="people-image" src="<%= @person.photo_url %>">
+        <div id="img-licence">
+          <%= @person.licence %>
+        </div>
       <% end %>
     </div>
     <div class="col-md-6">
