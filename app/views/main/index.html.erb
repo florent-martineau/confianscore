@@ -1,11 +1,16 @@
 <div id="smart-container">
   <div class="row">
-    <h1 class="col-md-12 sources-container" style="text-align: center;">
+    <div class="col-md-12 sources-container" style="text-align: left;padding-left: 100px;">
+      <h1>
+          ConfianScore
+      </h1>
+      <h2 id="home-desc">
         Score de fiabilité intellectuelle collaboratif.
-    </h1>
+      </h2>
+    </div>
     <div class="col-md-8 sources-container">
       <p>
-      <div>
+      <div class="home-last">
         Dernières sources en attente :
       </div>
       <% if @pendings.count == 0 %>
@@ -22,7 +27,7 @@
       <% end %>
       </p>
       <p>
-      <div>
+      <div class="home-last">
         Dernières sources validées :
       </div>
       <% @last_corrects.each_with_index do |source, index| %>

@@ -18,6 +18,11 @@ h2 {
     font-weight: bold;
 }
 
+#home-desc {
+  font-weight: 400 !important;
+  font-size: 1.5rem;
+}
+
 #smart-container  {
     padding: 20px
 }
@@ -78,6 +83,12 @@ h2 {
     font-size: 12px
 }
 
+.home-last {
+  font-family: 'Linux Libertine','Georgia','Times',serif;
+  font-size: 18px;
+  text-transform: uppercase;
+  border-bottom: solid 0.1rem #517a8b;
+}
 .box {
     display: flex;
  }
