@@ -83,6 +83,19 @@ h2 {
     font-size: 12px
 }
 
+#search-bar {
+  background-color: white;
+}
+
+#search-input {
+  border-radius: 0px;
+  border-color: white;
+  min-width: 275px;
+}
+
+#submit-search-btn {
+  border-color: white;
+}
 .home-last {
   font-family: 'Linux Libertine','Georgia','Times',serif;
   font-size: 18px;
