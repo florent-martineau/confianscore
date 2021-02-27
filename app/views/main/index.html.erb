@@ -16,29 +16,35 @@
       <% if @pendings.count == 0 %>
       <div class="source-lis">Pas de source en attente de validation</div>
       <% end %>
+      <ul>
       <% @pendings.each_with_index do |source, index| %>
-      <div class="source-lis">
-        <% if index.even? %>
-        <%= link_to source.abstract_with_name, new_vote_path({:source_id => source.id}), :class => 'source-colorized' %>
-        <% else %>
-        <%= link_to source.abstract_with_name, new_vote_path({:source_id => source.id}) %>
-        <% end %>
-      </div>
+        <li class="source-lis">
+          ·
+          <% if index.even? %>
+          <%= link_to source.abstract_with_name, new_vote_path({:source_id => source.id}), :class => 'source-colorized' %>
+          <% else %>
+          <%= link_to source.abstract_with_name, new_vote_path({:source_id => source.id}) %>
+          <% end %>
+        </li>
       <% end %>
+      </ul>
       </p>
       <p>
       <div class="home-last">
         Dernières sources validées :
       </div>
+      <ul>
       <% @last_corrects.each_with_index do |source, index| %>
-        <div class="source-lis">
+        <li class="source-lis">
+          ·
           <% if index.even? %>
           <%= link_to source.abstract_with_name, source_path(source.id), :class => 'source-colorized' %>
           <% else %>
           <%= link_to source.abstract_with_name, source_path(source.id) %>
           <% end %>
-        </div>
+        </li>
       <% end %>
+      </ul>
       </p>
     </div>
     <div class="col-md-4 sources-container">
