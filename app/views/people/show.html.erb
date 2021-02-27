@@ -12,8 +12,8 @@
     </div>
     <div class="col-md-6">
       <div id="people-image-info">
-        <h2><%= displayed_name(@person) %></h2>
-        <h3><%= score_label(@person.score_value, @person.sources.count) %></h3>
+        <h1><%= displayed_name(@person) %></h1>
+        <h2 id="fiabilite"><%= score_label(@person.score_value, @person.sources.count) %></h2>
         <div><%= source_counter(Source.validated_and_used_by_person(@person.id).count) %></div>
       </div>
     </div>
