@@ -30,9 +30,11 @@ ul {
   padding-left: 0px
 }
 
+#home-header-block {
+  float: left
+}
+
 #home-header {
-  text-align: left;
-  padding-left: 100px;
   padding-bottom: 25px;
   padding-top: 25px;
 }
@@ -40,6 +42,26 @@ ul {
 #home-desc {
   font-weight: 400 !important;
   font-size: 1.5rem;
+}
+
+
+
+@media screen and (min-width: 768px) {
+  #home-image {
+    max-width: 63px;
+    float: left;
+    padding-right: 14px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  #home-image {
+    display: none;
+  }
+
+  #home-title {
+    display: none;
+  }
 }
 
 #smart-container  {
