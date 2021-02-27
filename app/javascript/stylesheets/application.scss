@@ -8,10 +8,14 @@
 a:hover {
     background-color: transparent !important;
 }
+a, a:visited {
+  color: #202122;
+}
 
 body {
     font-family: sans-serif;
     background-color: #f2f2f5;
+    color: #202122;
 }
 
 h2 {
@@ -195,7 +199,7 @@ li {
 }
 
 .source-colorized {
-  color: #517a8b !important;
+  color: #89290b !important;
 }
 
 .quote-ans {
