@@ -5,7 +5,7 @@
     « <%= @source.abstract %> »
   </span>
   <span id="source-author">
-    <%= displayed_name(@source.person) %>
+    <%= link_to displayed_name(@source.person), person_path(@source.person_id) %>
   </span>
 </p>
 
@@ -29,9 +29,6 @@
 <p>
   <%= source_result(@source.is_correct) %>
 </p>
-
-
-<%= link_to 'Retour - ' + displayed_name(@source.person), person_path(@source.person_id) %>
 
 <hr>
 
