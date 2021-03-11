@@ -1,8 +1,9 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Extrait :</strong>
-  <%= @source.abstract %>
+<p id="source">
+  « <%= @source.abstract %> »
+  </hr>
+  <%= displayed_name(@source.person) %>
 </p>
 
 <p>
@@ -10,10 +11,6 @@
   <%= link_to "Voir la source", @source.link %>
 </p>
 
-<p>
-  <strong>Prononcée par :</strong>
-  <%= displayed_name(@source.person) %>
-</p>
 
 <p>
   <strong>Commentaire :</strong>
