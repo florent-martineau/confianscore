@@ -1,35 +1,24 @@
-<p id="notice"><%= notice %></p>
-
-<h1>People</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>First name</th>
-      <th>Last name</th>
-      <th>Wikipedia link</th>
-      <th>Media</th>
-      <th>Wiki summary</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @people.each do |person| %>
-      <tr>
-        <td><%= person.first_name %></td>
-        <td><%= person.last_name %></td>
-        <td><%= person.wikipedia_link %></td>
-        <td><%= person.media %></td>
-        <td><%= person.wiki_summary %></td>
-        <td><%= link_to 'Show', person %></td>
-        <td><%= link_to 'Edit', edit_person_path(person) %></td>
-        <td><%= link_to 'Destroy', person, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+<div class="row">
+  <div class="col-md-12 sources-container">
+    <div>
+      Toutes les fiches existantes (<%= @counter.to_s + " ont des sources" %>) actuellement :
+    </div>
+    <% @all_persons.each do |person| %>
+      <div class="search-result-block">
+        <h4 class="all-profiles">
+          <% if person.has_source? %>
+            <%= link_to displayed_name(person), person_path(person.id) %>
+            <div class="search-result-details">
+              <%= (person.score_value*100).to_i.to_s + "% - " + person.sources.count.to_s + " sources" %>
+            </div>
+          <% else %>
+            <%= link_to displayed_name(person), person_path(person.id) %>
+            <div class="search-result-details">
+              Pas de source pour l'instant
+            </div>
+          <% end %>
+        </h4>
+      </div>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Person', new_person_path %>
+  </div>
+</div>

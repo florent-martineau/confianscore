@@ -3,9 +3,13 @@ class PeopleController < ApplicationController
 
   # GET /people
   # GET /people.json
-  # def index
-  #   @people = Person.all
-  # end
+  def index
+    @all_persons = Person.all
+    @counter = 0
+    @all_persons.each do |person|
+      @counter += 1 if person.point_verites.count > 0
+    end
+  end
 
   # GET /people/1
   # GET /people/1.json
