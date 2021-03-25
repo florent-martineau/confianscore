@@ -17,11 +17,10 @@
   </div>
 
   <div class="field">
-    <%= form.label :content %>
-    <%= form.text_area :content %>
+    <%= form.text_area :content, id: "commentaire-input", placeholder: "Ajouter une explication, un contexte..." %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Commenter" %>
   </div>
 <% end %>
