@@ -25,7 +25,6 @@ class ApplicationController < ActionController::Base
             @titre = person.displayed_name + " - " + ((person.score_value*100).to_i.to_s) + "%"
             @headline = @titre
             @article_description = person.seo_description
-
           end
         rescue
           @article_url = request.original_url

@@ -19,12 +19,12 @@
   <div id="vote-validation-field">
     <div class="field">
       <%= form.radio_button :is_validated, true %>
-      <%= label :is_validated, 'Oui.' %>
-      <%= form.radio_button :is_validated, false %>
+      <%= label :is_validated, 'Oui.', id: "source-validated" %>
+      <%= form.radio_button :is_validated, false, id: "source-unvalidated" %>
       <%= label :is_validated_no, 'Non.' %>
     </div>
 
-    <div class="field">
+    <div class="field" id="tag-selector">
       <%= form.select :tag_id, options_for_select(Tag.order_by_coefficient.pluck(:name, :id)) %>
     </div>
   </div>
