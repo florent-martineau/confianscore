@@ -1,3 +1,4 @@
+https://confianscore.org/
 # ConfianScore 
 Un site qui donne un score de fiabilité intellectuelle aux personnes médiatiques.
 
