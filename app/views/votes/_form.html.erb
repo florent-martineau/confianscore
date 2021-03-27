@@ -18,8 +18,8 @@
 
   <div id="vote-validation-field">
     <div class="field">
-      <%= form.radio_button :is_validated, true %>
-      <%= label :is_validated, 'Oui.', id: "source-validated" %>
+      <%= form.radio_button :is_validated, true, id: "source-validated" %>
+      <%= label :is_validated, 'Oui.' %>
       <%= form.radio_button :is_validated, false, id: "source-unvalidated" %>
       <%= label :is_validated_no, 'Non.' %>
     </div>
