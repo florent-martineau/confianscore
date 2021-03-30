@@ -50,7 +50,7 @@ module PeopleHelper
             label = "Fiabilité catastrophique : "
         elsif score < 50
             label = "Fiabilité mauvaise : "
-        elsif score < 55 && source_count < 2
+        elsif score < 55 && source_count < 3
             label = "Fiabilité inconnue : "
         elsif score < 55
             label = "Fiabilité moyenne : "
