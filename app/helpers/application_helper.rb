@@ -27,7 +27,7 @@ module ApplicationHelper
     def name_n_score(person)
       source_count = person.sources.count
       score = person.score_value
-      if (source_count > 2) || (score < 0.5)
+      if (source_count > 2) || (score < 0.5) || (score > 0.55)
         score_label = score_pct(person.score_value, source_count)
         return displayed_name(person) + ' - ' + score_label
       else
