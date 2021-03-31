@@ -54,7 +54,7 @@
       <div id="resume-title">Dernières fiches créées</div>
       <% Person.last_created.each do |person| %>
         <div>
-          <%= link_to displayed_name(person), person_path(person.id)  %>
+          <%= link_to name_n_score(person), person_path(person.id)  %>
         </div>
       <% end %>
       <%= link_to "Voir toutes les fiches", people_path(), id: "all-fiches" %>
