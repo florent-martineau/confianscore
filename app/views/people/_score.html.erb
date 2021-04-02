@@ -1,0 +1,24 @@
+<% if @scores.count > 1 %>
+  <canvas id="score-chart" width="400" height="400"></canvas>
+  <script type="text/javascript">
+    var ctx = document.getElementById('score-chart').getContext('2d');
+    var myLineChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+              labels: <%= raw @scores.map{|score| score.created_at.strftime("%d-%m-%Y")} %>,
+              datasets: [{
+                  label: 'Evolution du score',
+                  data: <%= raw @scores.map{|score| (score.value*100).to_i} %>,
+                  backgroundColor: [
+                      'rgba(255, 99, 132, 0)'
+                  ],
+                  borderColor: [
+                      'rgba(82, 122, 139, 1)'
+                  ],
+                  borderWidth: 1
+              }]
+          }
+    });
+  </script>
+
+<% end %>
