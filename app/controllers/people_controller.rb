@@ -18,6 +18,11 @@ class PeopleController < ApplicationController
     @scores = @person.scores
   end
 
+  def image
+    @person = Person.find(params[:id])
+    @score = @person.scores.last
+  end
+
   # GET /people/new
   def new
     @person = Person.new

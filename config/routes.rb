@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :tags
   resources :votes
   resources :sources
+  get 'people/:id/image' => 'people#image'
   resources :people
   root to: 'main#index'
   get '/charte' => 'main#charte', as: 'charte'
