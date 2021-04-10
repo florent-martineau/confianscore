@@ -86,7 +86,7 @@ ActiveRecord::Schema.define(version: 2021_02_25_105403) do
     t.string "photo_auteur"
     t.string "photo_licence"
   end
-
+  
   create_table "point_verites", force: :cascade do |t|
     t.integer "person_id"
     t.float "value"
