@@ -20,13 +20,13 @@
     <div class="col-md-3">
       <div id="wikipedia">
       <% if @person.wikipedia_link.present? %>
-      <div id="wikilink">
+      <h3 id="wikilink">
         <i class="fab fa-wikipedia-w"></i>
         <%= link_to "A une fiche Wikipédia.", @person.wikipedia_link %>
         <div id="resume-info">
           <%= @person.wiki_summary %>
         </div>
-      </div>
+      </h3>
       <% else %>
       <div>
         N'a pas de fiche Wikipédia.
