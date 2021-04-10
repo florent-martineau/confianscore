@@ -5,6 +5,10 @@
     src: url('/assets/OpenSans-Regular.ttf') format('truetype');
 }
 
+@font-face {
+  font-family: 'Linux Libertine';
+  src: url('/assets/LinLibertine_R.ttf') format('truetype');
+}
 a:hover {
     background-color: transparent !important;
 }
@@ -70,6 +74,21 @@ ul {
 
 #score-chart {
   margin-bottom: 25px;
+}
+
+#sources-box {
+  border-bottom: 1px solid black;
+}
+
+#sources-box-lbl {
+  font-family: 'Linux Libertine','Georgia','Times',serif;
+  font-weight: 700;
+  font-size: 1.5em;
+}
+
+#sources-box-btn {
+  font-size: 12px;
+  margin-left: 1em;
 }
 
 @media screen and (min-width: 768px) {

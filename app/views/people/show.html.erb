@@ -37,8 +37,8 @@
   </div>
   <div class="row">
     <div class="col-md-8 sources-container">
-      <div>
-        <%= link_to "Ajouter une source", new_source_path({:person_id => @person.id}) %>
+      <div id="sources-box">
+        <span id="sources-box-lbl">Sources</span><span><%= link_to "[En ajouter]", new_source_path({:person_id => @person.id}), id: "sources-box-btn" %></span>
       </div>
       <% Source.validated_and_used_by_person(@person.id).order('created_at DESC').each do |source| %>
         <div class="row">
