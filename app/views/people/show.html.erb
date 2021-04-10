@@ -50,6 +50,9 @@
             </div>
         </div>
       <% end %>
+      <div id="predictions-box" style="margin-top: 15px;">
+        <span id="predictions-box-lbl">Annonces pour le futur</span><span><%= link_to "[En ajouter]", new_source_path({:person_id => @person.id}), id: "predictions-box-btn" %></span>
+      </div>
     </div>
     <div class="col-md-4 sources-container">
       <%= render "score" %>

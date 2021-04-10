@@ -76,17 +76,17 @@ ul {
   margin-bottom: 25px;
 }
 
-#sources-box {
+#sources-box, #predictions-box {
   border-bottom: 1px solid black;
 }
 
-#sources-box-lbl {
+#sources-box-lbl, #predictions-box-lbl {
   font-family: 'Linux Libertine','Georgia','Times',serif;
   font-weight: 700;
   font-size: 1.5em;
 }
 
-#sources-box-btn {
+#sources-box-btn, #predictions-box-btn {
   font-size: 12px;
   margin-left: 1em;
 }
