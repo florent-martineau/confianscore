@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<p id="notice"><%= notice %></p>
+
+<p id="source">
+  <span>
+    « <%= @prediction.abstract %> »
+  </span>
+
+  <span id="source-author">
+    <%= link_to displayed_name(@prediction.person), person_path(@prediction.person_id) %>
+  </span>
+</p>
+
+
+<p>
+  <%= @prediction.justification %>
+</p>
+<p>
+  <strong>Lien :</strong>
+  <%= link_to "Voir la source", @prediction.link %>
+</p>

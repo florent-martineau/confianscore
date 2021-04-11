@@ -167,13 +167,13 @@ ul {
   border: 1px solid black;
 }
 
-#text-source, #commentaire-input {
+#text-source, #commentaire-input, #text-prediction-justification, #text-prediction {
   width: 100%;
   min-height: 140px;
   padding: 8px;
 }
 
-#link-source {
+#link-source, #link-prediction {
   min-width: 345px;
   padding: 8px;
 }

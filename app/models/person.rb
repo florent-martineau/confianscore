@@ -21,6 +21,7 @@ class Person < ApplicationRecord
     has_many :sources, :dependent => :delete_all
     has_many :point_verites, :dependent => :delete_all
     has_many :scores, :dependent => :delete_all
+    has_many :predictions, :dependent => :delete_all
 
     after_create :get_wikipedia_content
 

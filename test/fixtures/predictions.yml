@@ -1,0 +1,32 @@
+# == Schema Information
+#
+# Table name: predictions
+#
+#  id                 :bigint           not null, primary key
+#  abstract           :string
+#  has_been_confirmed :boolean
+#  justification      :string
+#  link               :string
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#  person_id          :integer
+#  user_id            :integer
+#
+
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  abstract: MyString
+  justification: MyString
+  has_been_confirmed: false
+  link: MyString
+  user_id: 1
+  person_id: 1
+
+two:
+  abstract: MyString
+  justification: MyString
+  has_been_confirmed: false
+  link: MyString
+  user_id: 1
+  person_id: 1

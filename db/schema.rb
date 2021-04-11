@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_25_105403) do
+ActiveRecord::Schema.define(version: 2021_04_10_221712) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -86,10 +86,21 @@ ActiveRecord::Schema.define(version: 2021_02_25_105403) do
     t.string "photo_auteur"
     t.string "photo_licence"
   end
-  
+
   create_table "point_verites", force: :cascade do |t|
     t.integer "person_id"
     t.float "value"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "predictions", force: :cascade do |t|
+    t.string "abstract"
+    t.string "justification"
+    t.boolean "has_been_confirmed"
+    t.string "link"
+    t.integer "user_id"
+    t.integer "person_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

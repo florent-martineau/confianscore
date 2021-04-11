@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :predictions
   resources :messages
   devise_for :users
   get 'users/:id' => 'users#show'

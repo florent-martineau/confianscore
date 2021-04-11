@@ -1,0 +1,34 @@
+<%= form_with(model: prediction, local: true) do |form| %>
+  <% if prediction.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(prediction.errors.count, "error") %> prohibited this prediction from being saved:</h2>
+
+      <ul>
+        <% prediction.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.text_area :abstract, :placeholder => "Qu'a prédit cette personne ?", :required => true, :id => "text-prediction"  %>
+  </div>
+
+  <div class="field">
+    <%= form.text_area :justification, :placeholder => "Pourquoi est-ce important ?", :required => true, :id => "text-prediction-justification" %>
+  </div>
+
+  <div class="field">
+    <%= form.text_field :link, :placeholder => "Lien vers la prédiction", :required => true, :id => "link-prediction" %>
+  </div>
+
+  <div class="field" hidden>
+    <%= form.label :person_id %>
+    <%= form.number_field :person_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Ajouter une prédiction" %>
+  </div>
+<% end %>
