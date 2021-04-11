@@ -50,16 +50,27 @@
             </div>
         </div>
       <% end %>
-      <div id="predictions-box" style="margin-top: 15px;">
+      <% if Source.validated_and_used_by_person(@person.id).count == 0 %>
+        <div class="row">
+            <div class="col-10 source">
+              <div>Pas de source pour l'instant</div>
+            </div>
+        </div>
+      <% end %>
+      <div id="predictions-box" style="margin-top: 25px;">
         <span id="predictions-box-lbl">Annonces pour le futur</span><span><%= link_to "[En ajouter]", new_prediction_path({:person_id => @person.id}), id: "predictions-box-btn" %></span>
       </div>
       <% @person.predictions.order('created_at DESC').each do |prediction| %>
         <div class="row">
             <div class="col-10 source">
               <%= link_to prediction.id, prediction_path(prediction.id), class: "source-details-link" %>
-              <div class="gravite-source">
-                "ok"
-              </div>
+            </div>
+        </div>
+      <% end %>
+      <% if @person.predictions.count == 0 %>
+        <div class="row">
+            <div class="col-10 source">
+              <div>Pas de prédiction pour l'instant</div>
             </div>
         </div>
       <% end %>
