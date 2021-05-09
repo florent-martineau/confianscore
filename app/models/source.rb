@@ -60,7 +60,11 @@ class Source < ApplicationRecord
     end
 
     def abstract_with_name
-        "« " + abstract + " » - " + person.displayed_name
+        unless person.nil?
+            "« " + abstract + " » - " + person.displayed_name
+        else
+            "« " + abstract + " » - Personne inconnue"
+        end
     end
 
     def commentaire
