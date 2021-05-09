@@ -60,12 +60,12 @@ class Source < ApplicationRecord
     end
 
     def abstract_with_name
-        if abstract.length > 100
-            text = abstract[0...100] + "..."
+        if abstract.length > 250
+            text = abstract[0...250] + "..."
         else
             text = abstract
         end
-        
+
         unless person.nil?
             "« " + text + " » - " + person.displayed_name
         else
