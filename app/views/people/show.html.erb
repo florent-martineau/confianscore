@@ -66,7 +66,7 @@
       <% @person.predictions.order('created_at DESC').each do |prediction| %>
         <div class="row">
             <div class="col-10 source">
-              <%= link_to prediction.id, prediction_path(prediction.id), class: "source-details-link" %>
+              <%= link_to text_n_status(prediction), prediction_path(prediction.id), class: "source-details-link" %>
             </div>
         </div>
       <% end %>

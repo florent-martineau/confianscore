@@ -21,6 +21,7 @@ class Tag < ApplicationRecord
         "Erreur logique grave" => -0.7,
         "Utilisation d'un homme de paille" => -0.7,
         "Erreur logique mineure" => -0.4,
+        "Illustration trompeuse" => -0.4,
         "Promotion du consensus scientifique" => 0.5,
         "Promotion de l'esprit critique" => 0.5,
         "Travaux clairement présentés comme non approuvés par la communauté scientifique" => 0.5,

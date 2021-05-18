@@ -60,7 +60,17 @@ class Source < ApplicationRecord
     end
 
     def abstract_with_name
-        "« " + abstract + " » - " + person.displayed_name
+        if abstract.length > 250
+            text = abstract[0...250] + "..."
+        else
+            text = abstract
+        end
+
+        unless person.nil?
+            "« " + text + " » - " + person.displayed_name
+        else
+            "« " + text + " » - Personne inconnue"
+        end
     end
 
     def commentaire
