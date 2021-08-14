@@ -1,7 +1,11 @@
+<h1>Modifier les informations générales</h1>
+<h3 id="source-explanation">
+  Toutes les modifications sont sauvegardées.
+</h3>
 <%= form_tag(update_general_data_path(@person.id)) do %>
 
   <div class="field">
-    <%= rich_text_area_tag :last_general_data, @last_general_data %>
+    <%= rich_text_area_tag :last_general_data, @last_general_data, :id => "text-general-data" %>
   </div>
 
   <div class="field" hidden>
@@ -9,6 +13,6 @@
   </div>
 
   <div class="actions">
-    <%= submit_tag "Ajouter une source" %>
+    <%= submit_tag "Sauvegarder" %>
   </div>
 <% end %>

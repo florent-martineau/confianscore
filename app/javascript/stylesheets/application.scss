@@ -172,10 +172,14 @@ ul {
   border: 1px solid black;
 }
 
-#text-source, #commentaire-input, #text-prediction-justification, #text-prediction {
+#text-source, #commentaire-input, #text-prediction-justification, #text-prediction, #text-general-data {
   width: 100%;
   min-height: 140px;
   padding: 8px;
+}
+
+#text-general-data {
+  background-color: white;
 }
 
 #link-source, #link-prediction {
