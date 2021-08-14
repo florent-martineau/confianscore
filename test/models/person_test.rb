@@ -5,6 +5,7 @@
 #  id             :bigint           not null, primary key
 #  first_name     :string
 #  full_name      :string
+#  general_data   :json
 #  last_name      :string
 #  media          :json
 #  nickname       :string

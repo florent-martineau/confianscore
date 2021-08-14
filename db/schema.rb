@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_10_221712) do
+ActiveRecord::Schema.define(version: 2021_08_14_132057) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -85,6 +85,7 @@ ActiveRecord::Schema.define(version: 2021_04_10_221712) do
     t.string "photo_url"
     t.string "photo_auteur"
     t.string "photo_licence"
+    t.json "general_data"
   end
 
   create_table "point_verites", force: :cascade do |t|

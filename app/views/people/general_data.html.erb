@@ -1,0 +1,14 @@
+<%= form_tag(update_general_data_path(@person_id)) do %>
+
+  <div class="field">
+    <%= text_area_tag :general_data, Person.find(@person_id).general_data %>
+  </div>
+
+  <div class="field" hidden>
+    <%= number_field_tag :person_id, @person_id %>
+  </div>
+
+  <div class="actions">
+    <%= submit_tag "Ajouter une source" %>
+  </div>
+<% end %>

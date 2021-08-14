@@ -86,10 +86,11 @@ ul {
   font-size: 1.5em;
 }
 
-#sources-box-btn, #predictions-box-btn {
+#sources-box-btn, #predictions-box-btn, .modify-data-box-btn {
   font-size: 12px;
   margin-left: 1em;
 }
+
 
 @media screen and (min-width: 768px) {
   #home-image {

@@ -62,4 +62,18 @@ module PeopleHelper
         label + score.round().to_s + "%"
     end
 
+    def general_data(id, data)
+      info = '<i class="fas fa-info float-left pr-2"></i>'
+      modifier_tag = modify_tag(id)
+      if data.nil?
+        tag = "<span title='Informations générales'>" + info + "<div>Pas de renseignement supplémentaire" + modifier_tag + "</div></span>"
+      else
+        tag = "<span title='Informations générales'>" + info + modifier_tag + "</span>"
+      end
+      sanitize tag
+    end
+
+    def modify_tag(id)
+      '<a class="modify-data-box-btn" href="/general_data/modify?person_id=' + id.to_s + '">[Modifier]</a>'
+    end
 end

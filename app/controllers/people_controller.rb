@@ -54,6 +54,14 @@ class PeopleController < ApplicationController
     end
   end
 
+  def general_data
+    @person_id = params["person_id"]
+  end
+
+  def update_general_data
+    Person.find(params["person_id"])
+  end
+
   # PATCH/PUT /people/1
   # PATCH/PUT /people/1.json
   # def update
