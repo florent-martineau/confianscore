@@ -28,6 +28,8 @@ class Person < ApplicationRecord
 
     after_create :get_wikipedia_content
 
+    scope :last_updated, -> { order('updated_at DESC').first(10) }
+
     MEDIAS = {
       "facebook" => "Facebook",
       "youtube" => "YouTube",
@@ -37,6 +39,7 @@ class Person < ApplicationRecord
     def self.last_created
         Person.last(10).reverse
     end
+
 
     def self.search_by(keywords)
         keywords = keywords.downcase
