@@ -55,11 +55,22 @@ class PeopleController < ApplicationController
   end
 
   def general_data
-    @person_id = params["person_id"]
+    @person = Person.find(params["person_id"])
+    general_data = @person.general_data
+    id = general_data.keys.map {|k| k.to_i}.sort.last.to_i.to_s
+    @last_general_data = general_data[id]
   end
 
   def update_general_data
-    Person.find(params["person_id"])
+    last_general_data = params["last_general_data"]
+    last_general_data.insert(4, ' id="general_data"')
+    person = Person.find(params["person_id"])
+    general_data = person.general_data
+    last_key = general_data.keys.map {|k| k.to_i}.sort.last.to_i + 1
+    general_data[last_key] = last_general_data
+    person.general_data = general_data
+    person.save
+    redirect_to person_path(params["person_id"])
   end
 
   # PATCH/PUT /people/1

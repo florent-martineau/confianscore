@@ -1,7 +1,7 @@
-<%= form_tag(update_general_data_path(@person_id)) do %>
+<%= form_tag(update_general_data_path(@person.id)) do %>
 
   <div class="field">
-    <%= text_area_tag :general_data, Person.find(@person_id).general_data %>
+    <%= rich_text_area_tag :last_general_data, @last_general_data %>
   </div>
 
   <div class="field" hidden>

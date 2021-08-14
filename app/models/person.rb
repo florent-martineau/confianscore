@@ -24,6 +24,8 @@ class Person < ApplicationRecord
     has_many :scores, :dependent => :delete_all
     has_many :predictions, :dependent => :delete_all
 
+    has_rich_text :last_general_data
+
     after_create :get_wikipedia_content
 
     MEDIAS = {
