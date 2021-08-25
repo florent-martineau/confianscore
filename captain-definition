@@ -25,6 +25,7 @@
 	"COPY . .",
 	"ENV RACK_ENV production2",
   "RUN yarn install --check-files",
+  "RUN /bin/bash -c 'bundle exec rake RAILS_ENV=production NODE_ENV=production SECRET_KEY_BASE=dummy assets:precompile; kill %1'"
 	"EXPOSE 80",
 	"CMD [\"rackup\", \"config.ru\", \"--host\", \"0.0.0.0\", \"--port\", \"80\"]",
   "CMD puma -C config/puma.rb"
