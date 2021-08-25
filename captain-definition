@@ -21,10 +21,10 @@
   "COPY Gemfile.lock /app/Gemfile.lock",
 	"RUN bundle install",
 	"COPY . .",
-	"ENV RACK_ENV production",
+	"ENV RACK_ENV development",
 	"EXPOSE 80",
 	"CMD [\"rackup\", \"config.ru\", \"--host\", \"0.0.0.0\", \"--port\", \"80\"]",
-  "RUN bundle exec rake RAILS_ENV=production assets:precompile",
+  "RUN bundle exec rake RAILS_ENV=development assets:precompile",
   "CMD puma -C config/puma.rb"
   ]
 }
