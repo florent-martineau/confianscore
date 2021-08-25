@@ -34,3 +34,11 @@ production:
   timeout: 5000
   username: confianscore_user
   password: <%= ENV["POSTGRESQL_PASSWORD"] %>
+
+production2:
+  adapter: postgresql
+  database: confianscore-prod
+  pool: 5
+  timeout: 5000
+  username: confianscore_user
+  password: <%= ENV["POSTGRESQL_PASSWORD"] %>
