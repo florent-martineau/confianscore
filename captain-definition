@@ -24,7 +24,7 @@
 	"RUN bundle install",
 	"COPY . .",
 	"ENV RACK_ENV production",
-  "RUN yarn install --check-files",
+  "RUN NODE_ENV=production yarn install --check-files",
   "RUN /bin/bash -c 'bundle exec rake RAILS_ENV=production NODE_ENV=production SECRET_KEY_BASE=dummy assets:precompile'",
 	"EXPOSE 80",
 	"CMD [\"rackup\", \"config.ru\", \"--host\", \"0.0.0.0\", \"--port\", \"80\"]",
