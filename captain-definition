@@ -24,7 +24,6 @@
 	"ENV RACK_ENV production2",
 	"EXPOSE 80",
 	"CMD [\"rackup\", \"config.ru\", \"--host\", \"0.0.0.0\", \"--port\", \"80\"]",
-  "RUN bundle exec rake RAILS_ENV=production2 assets:precompile",
   "CMD puma -C config/puma.rb"
   ]
 }
