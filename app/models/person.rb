@@ -136,7 +136,7 @@ class Person < ApplicationRecord
     end
 
     def last_score
-      score = self.scores.last.value
+      score = self.scores.last&.value
       score ||= 0.5
     end
 
