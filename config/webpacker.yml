@@ -100,7 +100,7 @@ production2:
 
   # Production depends on precompilation of packs prior to booting for performance.
   compile: false
-
+  check_yarn_integrity: false
   # Extract and emit a css file
   extract_css: true
 
