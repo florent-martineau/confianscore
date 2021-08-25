@@ -22,7 +22,6 @@
 	"RUN bundle install",
 	"COPY . .",
 	"ENV RACK_ENV development",
-  "RUN yarn install --check-files",
 	"EXPOSE 80",
 	"CMD [\"rackup\", \"config.ru\", \"--host\", \"0.0.0.0\", \"--port\", \"80\"]",
   "RUN bundle exec rake RAILS_ENV=development assets:precompile",
