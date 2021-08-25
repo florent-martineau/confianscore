@@ -23,7 +23,7 @@
   "COPY Gemfile.lock /app/Gemfile.lock",
 	"RUN bundle install",
 	"COPY . .",
-	"ENV RACK_ENV production2",
+	"ENV RACK_ENV production",
   "RUN yarn install --check-files",
   "RUN /bin/bash -c 'bundle exec rake RAILS_ENV=production NODE_ENV=production SECRET_KEY_BASE=dummy assets:precompile'",
 	"EXPOSE 80",
