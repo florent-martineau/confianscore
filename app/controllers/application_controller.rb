@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
           if parsed_url.last.to_i != 0 && parsed_url.include?("people")
             person_id = parsed_url.last.to_i
             person = Person.find(person_id)
-            @titre = person.displayed_name + " - " + ((person.score_value*100).to_i.to_s) + "%"
+            @titre = "Fiabilité de " + person.displayed_name + " - " + ((person.score_value*100).to_i.to_s) + "%"
             @headline = @titre
             @article_description = person.seo_description
           end
