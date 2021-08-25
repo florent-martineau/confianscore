@@ -29,7 +29,7 @@ test:
 
 production:
   adapter: postgresql
-  database: confianscore-prod
+  database: confianscore_prod
   pool: 5
   timeout: 5000
   username: confianscore_user
