@@ -10,4 +10,9 @@
 #
 
 class Search < ApplicationRecord
+
+  def self.by_full_name(keywords)
+    Person.where('lower(full_name) = ?', keywords.downcase).first 
+  end
+
 end

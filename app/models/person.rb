@@ -44,7 +44,8 @@ class Person < ApplicationRecord
     def self.search_by(keywords)
         keywords = keywords.downcase
         res = []
-
+        full_name_search = Search.by_full_name(keywords)
+        return [[full_name_search, 0]] unless full_name_search.nil?
         Person.find_each do |person|
             levenshtein = person.levenshtein_distance(keywords)
             res << [person, levenshtein] if levenshtein < 10
