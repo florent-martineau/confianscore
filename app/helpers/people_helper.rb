@@ -11,7 +11,9 @@ module PeopleHelper
 
     def gravite(source)
         score = source.score
-        if score < -0.55
+        if score == 0
+            " - Discutable. N'affecte pas le score.❔"
+        elsif score < -0.55
             " - Diminue fortement la fiabilité de la parole de ce profil. ❌❌"
         elsif score < 0
             " - Diminue la fiabilité de la parole de ce profil. ❌"
