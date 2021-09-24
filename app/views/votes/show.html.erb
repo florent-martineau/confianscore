@@ -1,19 +1,7 @@
-<p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Source:</strong>
-  <%= @vote.source_id %>
+  <strong>Merci d'avoir voté.</strong>
+  <%= "«" + @vote.source.abstract + "»" %>
 </p>
 
-<p>
-  <strong>Is validated:</strong>
-  <%= @vote.is_validated %>
-</p>
-
-<p>
-  <strong>Tag:</strong>
-  <%= @vote.tag_id %>
-</p>
-
-<%= link_to 'Edit', edit_vote_path(@vote) %> |
-<%= link_to 'Back', votes_path %>
+<%= link_to "Retourner sur le profil de " + @vote.source.person.full_name, person_path(@vote.source.person.id) %>
