@@ -14,7 +14,7 @@
       <div id="people-image-info">
         <h1><%= displayed_name(@person) %></h1>
         <h2 id="fiabilite"><%= score_label(@person.score_value, @person.sources.count) %></h2>
-        <div><%= source_counter(Source.validated_and_used_by_person(@person.id).count) %></div>
+        <div><%= source_counter(Source.validated_and_used_by_person(@person.id).count) %> - Profil créé le <%= @person.created_at.strftime("%d/%m/%Y") %></div>
       </div>
     </div>
     <div class="col-md-3">

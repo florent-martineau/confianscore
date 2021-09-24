@@ -61,6 +61,16 @@ class PeopleController < ApplicationController
     @last_general_data = general_data[id]
   end
 
+  def general_data_historique
+    @person = Person.find(params["person_id"])
+    general_data = @person.general_data
+    ids = general_data.keys.map {|k| k.to_i.to_s}.sort.reverse
+    @general_data = ids.map {|id| general_data[id]}
+    @current_data = @general_data.first
+    @general_data.delete(@current_data)
+    @versions_precedentes_count = @general_data.count
+  end
+
   def update_general_data
     last_general_data = params["last_general_data"]
     last_general_data.insert(4, ' id="general_data"')

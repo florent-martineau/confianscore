@@ -13,9 +13,9 @@ class ApplicationController < ActionController::Base
     def set_schemaorg
         begin
           @article_url = request.original_url
-          @titre = "ConfianScore"
+          @titre = "ConfianScore - Score de fiabilité intellectuelle collaboratif"
           @img_url = request.base_url+ActionController::Base.helpers.image_url("logo-carre.png")
-          @article_description = "Score de fiabilité intellectuelle collaboratif."
+          @article_description = "Vérifions ensemble la fiabilité des personnalités médiatiques."
           @headline = @article_description
 
           parsed_url = @article_url.split("/")
@@ -28,9 +28,9 @@ class ApplicationController < ActionController::Base
           end
         rescue
           @article_url = request.original_url
-          @titre = "ConfianScore"
+          @titre = "ConfianScore - Score de fiabilité intellectuelle collaboratif"
           @headline = @titre
-          @article_description = "Score de fiabilité intellectuelle collaboratif."
+          @article_description = "Vérifions ensemble la fiabilité des personnalités médiatiques."
           @img_url = request.base_url+ActionController::Base.helpers.image_url("logo-carre.png")
         end
     end

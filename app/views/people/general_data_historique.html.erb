@@ -1,0 +1,13 @@
+<h1><%= @person.full_name %> - Infos générales</h1>
+<h6>Historique des modifications</h6>
+<div style="border: 1px solid black; padding: 5px">
+  <div>Version actuelle : </div>
+  <%= raw @current_data %>
+</div>
+</br>
+<% @general_data.each_with_index do |data, i| %>
+  <div>
+    <div style="text-decoration: underline">Version <%= @versions_precedentes_count - i %> : </div>
+    <%= raw data %>
+  </div>
+<% end %>

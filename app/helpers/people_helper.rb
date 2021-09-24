@@ -11,7 +11,9 @@ module PeopleHelper
 
     def gravite(source)
         score = source.score
-        if score < -0.55
+        if score == 0
+            " - Discutable. N'affecte pas le score.❔"
+        elsif score < -0.55
             " - Diminue fortement la fiabilité de la parole de ce profil. ❌❌"
         elsif score < 0
             " - Diminue la fiabilité de la parole de ce profil. ❌"
@@ -65,19 +67,24 @@ module PeopleHelper
     def general_data(id, data)
       info = '<i class="fas fa-info float-left pr-2"></i>'
       modifier_tag = modify_tag(id)
-      
+
       if data == {}
         tag = "<span title='Informations générales'>" + info + "<div>Pas de renseignement supplémentaire" + modifier_tag + "</div></span>"
       else
         last_data_id = data.keys.map {|k| k.to_i}.sort.last.to_i.to_s
 
         general_data = data[last_data_id]
-        tag = "<span title='Informations générales'>" + info + "<div>" + general_data + modifier_tag + "</div></span>"
+        historique_tag = historique_tag(id)
+        tag = "<span title='Informations générales'>" + info + "<div>" + general_data + modifier_tag + historique_tag + "</div></span>"
       end
       tag
     end
 
     def modify_tag(id)
       '<a class="ml-0 modify-data-box-btn" href="/general_data/modify?person_id=' + id.to_s + '">[Modifier]</a>'
+    end
+
+    def historique_tag(id)
+      '<a class="ml-0 modify-data-box-btn" href="/general_data/historique?person_id=' + id.to_s + '">[Historique]</a>'
     end
 end
