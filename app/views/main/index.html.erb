@@ -52,7 +52,7 @@
     </div>
     <div class="col-md-4 sources-container">
       <div id="resume-title">Dernières mises à jour</div>
-      <% Person.last_updated.each do |person| %>
+      <% Person.where.not(full_name: "").last_updated.each do |person| %>
         <div>
           <%= link_to name_n_score(person), person_path(person.id)  %>
         </div>

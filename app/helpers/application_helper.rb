@@ -16,7 +16,11 @@ module ApplicationHelper
 
     def displayed_name(person)
       if person.nickname.present? && person.full_name.present?
-        person.full_name + " (" + person.nickname + ")"
+        if person.full_name != person.nickname
+          person.full_name + " (" + person.nickname + ")"
+        else
+          person.full_name
+        end
       elsif person.full_name.present?
         person.full_name
       elsif person.nickname.present?
