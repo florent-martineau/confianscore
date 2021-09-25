@@ -4,7 +4,7 @@ class PeopleController < ApplicationController
   # GET /people
   # GET /people.json
   def index
-    @all_persons = Person.all
+    @all_persons = Person.where.not(full_name: "").order(:full_name)
     @counter = 0
     @all_persons.each do |person|
       @counter += 1 if person.point_verites.count > 0
@@ -42,7 +42,8 @@ class PeopleController < ApplicationController
       nickname: person_params["nickname"],
     )
     @person.media = @person.define_media(person_params)
-    @person.full_name = @person.first_name + " " + @person.last_name
+
+
     respond_to do |format|
       if @person.save
         format.html { redirect_to @person, notice: 'Person was successfully created.' }

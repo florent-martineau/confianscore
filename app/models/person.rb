@@ -26,7 +26,7 @@ class Person < ApplicationRecord
 
     has_rich_text :last_general_data
 
-    after_create :get_wikipedia_content
+    after_create :define_nickname, :get_wikipedia_content
 
     scope :last_updated, -> { order('updated_at DESC').first(10) }
 
@@ -52,6 +52,16 @@ class Person < ApplicationRecord
         end
         res = res.sort_by {|_key, value| value}
         res.reverse()
+    end
+
+    def define_nickname
+      self.full_name = ""
+      if self.first_name.to_s != "" && self.last_name.to_s != ""
+        self.full_name = self.first_name + " " + self.last_name
+      elsif self.nickname.to_s != ""
+        self.full_name = self.nickname
+      end
+      self.save
     end
 
     def create_point_verite
