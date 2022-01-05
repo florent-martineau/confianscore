@@ -27,5 +27,4 @@ RUN SECRET_KEY_BASE=trololo
 RUN /bin/bash -c 'bundle exec rake assets:precompile'
 RUN yarn install
 EXPOSE 80
-CMD ["rackup", "config.ru", "--host", "0.0.0.0", "--port", "80"]
-CMD puma -C config/puma.rb"
+CMD ["rails", "s"]
