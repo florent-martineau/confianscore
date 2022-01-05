@@ -21,7 +21,6 @@ RUN gem install bundler
 COPY Gemfile /app/Gemfile
 COPY Gemfile.lock /app/Gemfile.lock
 RUN bundle install
-COPY . .
 ENV RACK_ENV production
 RUN RAILS_ENV=production 
 RUN NODE_ENV=production 
