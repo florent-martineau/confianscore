@@ -21,7 +21,7 @@ COPY Gemfile.lock /app/Gemfile.lock
 RUN bundle install
 COPY . .
 ENV RACK_ENV production
-RUN RAILS_ENV=production NODE_ENV=production SECRET_KEY_BASE=trololo /bin/bash -c 'bundle exec rake assets:precompile&& yarn install --check-files'
+RUN RAILS_ENV=production NODE_ENV=production SECRET_KEY_BASE=trololo /bin/bash -c 'bundle exec rake assets:precompile && yarn install --check-files'
 EXPOSE 80
 CMD ["rackup", "config.ru", "--host", "0.0.0.0", "--port", "80"]
 CMD puma -C config/puma.rb"
