@@ -25,7 +25,7 @@ RUN RAILS_ENV=production
 RUN NODE_ENV=production 
 RUN SECRET_KEY_BASE=trololo 
 RUN /bin/bash -c 'bundle exec rake assets:precompile'
-RUN yarn install --check-files'
+RUN yarn install --check-files
 EXPOSE 80
 CMD ["rackup", "config.ru", "--host", "0.0.0.0", "--port", "80"]
 CMD puma -C config/puma.rb"
